@@ -15,13 +15,13 @@
 
 .App-header {
   background-color: #ffffff;
-  min-height: 100vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #d40000;
 }
 
 .App-link {
@@ -38,4 +38,18 @@
 }
 h1{
   color: #ff0100;
+}
+
+button{
+  color: #ff0100;
+  background-color: white;
+  border-radius: 50%;
+  border: 5px #ff0100;
+}
+button:hover{
+  transition-duration: 0.5s;
+  color: #ffffff;
+  background-color: #ff0000;
+  border-radius: 15px 15px 15px;
+  border: 5px #ffffff;
 }
