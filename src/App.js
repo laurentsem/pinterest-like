@@ -1,17 +1,27 @@
 import './assets/css/App.css';
-import Header from './components/Header';
+
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
+import Home from './components/Home';
+import Navigation from './components/Navigation';
 import Footer from './components/Footer';
+import Signup from './components/Signup';
+import Login from './components/Login';
+import ProfilePage from './components/ProfilePage';
 
 function App() {
   return (
     <div className="App">
-      <Header />
-      <header className="App-header">
-        <h1>Pinterest</h1>
-        <span>create'n share</span>
-      </header>
-        <button type="button" className="btn btn-outline-danger">Connection</button>
-      <Footer/>
+     <Router>
+        <Navigation />
+     <Switch>
+      <Route path="/signup" component={Signup} />
+      <Route path="/login" component={Login} />
+      <Route path="/profile" component={ProfilePage} />
+     </Switch>
+     </Router>
+     <Home />
+    <Footer />
     </div>
   );
 }
