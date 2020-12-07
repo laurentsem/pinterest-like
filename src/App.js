@@ -10,7 +10,7 @@ function App() {
         <h1>Pinterest</h1>
         <span>create'n share</span>
       </header>
-        <button type="button" className="btn btn-outline-danger">connection</button>
+        <button type="button" className="btn btn-outline-danger">Connection</button>
       <Footer/>
     </div>
   );
