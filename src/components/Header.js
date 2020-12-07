@@ -1,3 +1,6 @@
+// Header
+// Contient le logo et le menu
+
 import React, {Component} from 'react';
 
 class Header extends Component {
