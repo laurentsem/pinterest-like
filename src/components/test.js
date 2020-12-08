@@ -1,42 +1,46 @@
-import React, { Component } from 'react';
-import {Image} from 'cloudinary-react';
-import {CloudinaryContext, Transformation} from 'cloudinary-react';
-import('cloudinary');
+import React, { useState } from 'react'
 
-class test extends Component {
-    render() {
-        return (
-            <div>
-                <h1>Hello, world!</h1>
-                <CloudinaryContext cloudName="dp2k3zmzy">
-                    <Image publicId="sample">
-                        <Transformation width="200" crop="scale" angle="10"/>
-                    </Image>
-                </CloudinaryContext>
-                <button id="upload_widget" className="cloudinary-button">Upload files</button>
+import '../assets/css/App.css'
 
-                <script src="https://widget.cloudinary.com/v2.0/global/all.js" type="text/javascript"/>
+function App() {
+    const [image, setImage] = useState('')
+    const [loading, setLoading] = useState(false)
 
-                <script type="text/javascript">
-                    var myWidget = cloudinary.createUploadWidget({
-                    cloudName: 'my_cloud_name',
-                    uploadPreset: 'my_preset'}, (error, result
-                ) => {
-                    if (!error && result && result.event === "success") {
-                    console.log('Done! Here is the image info: ', result.info);
-                }
-                }
-                    )
-
-                    document.getElementById("upload_widget").addEventListener("click", function (){
-                    myWidget.open();
-                }, false
-                )
-                ;
-                </script>
-            </div>
+    const uploadImage = async e => {
+        const files = e.target.files
+        const data = new FormData()
+        data.append('file', files[0])
+        data.append('upload_preset', 'darwin')
+        setLoading(true)
+        const res = await fetch(
+            '	https://api.cloudinary.com/v1_1/dihifeicm/image/upload',
+            {
+                method: 'POST',
+                body: data
+            }
         )
+        const file = await res.json()
+
+        setImage(file.secure_url)
+        setLoading(false)
     }
+
+    return (
+        <div className="App">
+            <h1>Upload Image</h1>
+            <input
+                type="file"
+                name="file"
+                placeholder="Upload an image"
+                onChange={uploadImage}
+            />
+            {loading ? (
+                <h3>Loading...</h3>
+            ) : (
+                <img src={image} style={{ width: '300px' }}  alt={image}/>
+            )}
+        </div>
+    )
 }
 
-export default test;
+export default App
