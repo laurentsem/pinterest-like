@@ -61,6 +61,7 @@ fading siblings
 .menu:hover .menu__link:not(:hover){
     --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, 0.35));
     color: #ff0100 !important;
+    text-decoration: none;
 
 }
 
@@ -98,6 +99,8 @@ TEXT UNDERLINED
 
     will-change: color;
     transition: color .25s ease-out;
+    text-decoration: none !important;
+
 }
 
 .text-underlined::before,
@@ -111,6 +114,8 @@ TEXT UNDERLINED
 
     position: absolute;
     bottom: 0;
+    text-decoration: none !important;
+
 }
 
 .text-underlined::before{
@@ -118,6 +123,8 @@ TEXT UNDERLINED
     transform: translateX(-50%);
     color: #ff0100 !important;
     background-color: white;
+    text-decoration: none !important;
+
 }
 
 .text-underlined::after{
@@ -125,6 +132,8 @@ TEXT UNDERLINED
     transform: translateX(50%);
     background-color: #ff0100 !important;
     color: white;
+    text-decoration: none !important;
+
 }
 
 .text-underlined:hover::before,
@@ -132,6 +141,8 @@ TEXT UNDERLINED
     color: #ff0100 !important;
     width: 100%;
     transition-duration: .2s;
+    text-decoration: none !important;
+
 }
 
 /*
@@ -149,4 +160,11 @@ SETTINGS
 
 .menu__link.r-link.text-underlined a{
     color: #ff0100 !important;
+    text-decoration: none !important;
+
+}
+
+
+.indicator{
+    text-decoration: none !important;
 }

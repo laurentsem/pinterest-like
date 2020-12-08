@@ -14,7 +14,7 @@
 }
 
 .App-header {
-  background-color: #ffffff;
+  background-color: #ebecf0;
   min-height: 90vh;
   display: flex;
   flex-direction: column;
@@ -42,4 +42,8 @@ h1{
 
 button{
   display: none;
+}
+
+footer{
+  color: #AE1100;
 }
