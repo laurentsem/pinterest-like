@@ -20,6 +20,9 @@ const Navigation = () => (
         <Link to={route.login}>Login</Link>
       </li>
       <li>
+        <Link to={route.loginGoogle}>Login w/ Google</Link>
+      </li>
+      <li>
         <Link to={route.profile}>Profile</Link>
       </li>
     </ul>

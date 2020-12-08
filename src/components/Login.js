@@ -3,7 +3,7 @@
 
 import React, { Component } from 'react';
 
-class ProfilePage extends Component {
+class Login extends Component {
     render() {
         return (
         <div>
@@ -18,4 +18,4 @@ class ProfilePage extends Component {
     }
 }
 
-export default ProfilePage;
+export default Login;
