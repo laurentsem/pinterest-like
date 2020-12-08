@@ -4,7 +4,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import * as route from '../assets/constants/routes';
+import * as route from '../constants/index';
 
 const Navigation = () => (
 <div>

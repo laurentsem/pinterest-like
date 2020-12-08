@@ -4,11 +4,14 @@ import './assets/css/index.css';
 import App from './App';
 // import reportWebVitals from './composent/js/reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
+import Firebase, {FirebaseContext} from './server'
 
 ReactDOM.render(
+  <FirebaseContext.Provider value={new Firebase()}>
   <BrowserRouter>
     <App />
-  </BrowserRouter>,
+  </BrowserRouter>
+  </FirebaseContext.Provider>,
   document.getElementById('root')
 );
 
