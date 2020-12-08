@@ -22,9 +22,12 @@ const Navigation = () => (
       <li>
         <Link to={route.profile}>Profile</Link>
       </li>
+      <li>
+        <Link to={route.test}>Test</Link>
+      </li>
     </ul>
   </nav>
 </div>
 );
- 
+
 export default Navigation;

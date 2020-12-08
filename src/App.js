@@ -8,6 +8,7 @@ import Footer from './components/Footer';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import ProfilePage from './components/ProfilePage';
+import test from './components/test';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/profile" component={ProfilePage} />
+      <Route path="/test" component={test} />
      </Switch>
      </Router>
      <Home />
