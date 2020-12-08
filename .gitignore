@@ -24,6 +24,6 @@ yarn-error.log*
 
 .idea/
 
-C:/Users/ElHoussamo/AppData/Roaming/npm-cache/
-
 .eslintcache
+
+src/server/firebase.js
