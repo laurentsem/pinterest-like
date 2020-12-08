@@ -1,0 +1,152 @@
+
+/*
+=====
+DEPENDENCES
+=====
+*/
+
+/* reset browser's styles of links https://github.com/melnik909/r-link */
+.r-link{
+    color: #ff0100 !important;
+}
+
+.r-link[href]{
+    color: #ff0100 !important;
+    text-decoration: none;
+}
+
+/* reset browser's styles of the ul https://github.com/melnik909/r-list */
+
+.r-list{
+    padding-left: 0;
+    margin-top: 0;
+    margin-bottom: 0;
+    list-style:  none;
+}
+
+
+/*
+=====
+CORE STYLES
+=====
+*/
+
+.menu{
+    --rLinkColor: var(--menuLinkColor, currentColor);
+    color: #ff0100 !important;
+
+}
+
+.menu__link{
+    display: block;
+    color: #ff0100 !important;
+
+}
+
+/*
+focus state
+*/
+
+.menu__link:focus{
+    outline: 2px solid #ff0100;
+    outline-offset: var(--menuLinkOutlineOffset);
+    color: #ff0100 !important;
+
+}
+
+/*
+fading siblings
+*/
+
+.menu:hover .menu__link:not(:hover){
+    --rLinkColor: var(--menuLinkColorUnactive, rgba(22, 22, 22, 0.35));
+    color: #ff0100 !important;
+
+}
+
+/*
+=====
+PRESENTATION STYLES
+=====
+*/
+
+.menu{
+    background-color: var(--menuBackgroundColor, #f0f0f0);
+    color: #ff0100 !important;
+    box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, 0.12), 0 1px 2px 0 rgba(0, 0, 0, 0.24));
+}
+
+.menu__list{
+    display: flex;
+}
+
+.menu__link{
+    padding: var(--menuLinkPadding, 1.5rem 2.5rem);
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/*
+=====
+TEXT UNDERLINED
+=====
+*/
+
+.text-underlined{
+    position: relative;
+    overflow: hidden;
+
+    will-change: color;
+    transition: color .25s ease-out;
+}
+
+.text-underlined::before,
+.text-underlined::after{
+    content: "";
+    width: 0;
+    height: 3px;
+
+    will-change: width;
+    transition: width .1s ease-out;
+
+    position: absolute;
+    bottom: 0;
+}
+
+.text-underlined::before{
+    left: 50%;
+    transform: translateX(-50%);
+    color: #ff0100 !important;
+    background-color: white;
+}
+
+.text-underlined::after{
+    right: 50%;
+    transform: translateX(50%);
+    background-color: #ff0100 !important;
+    color: white;
+}
+
+.text-underlined:hover::before,
+.text-underlined:hover::after{
+    color: #ff0100 !important;
+    width: 100%;
+    transition-duration: .2s;
+}
+
+/*
+=====
+SETTINGS
+=====
+*/
+
+.page__custom-settings{
+    --menuBackgroundColor: #ff0000;
+    --menuLinkColor: #ff0000;
+    --menuLinkColorUnactive: #ff0000;
+    --menuLinkOutlineOffset: 0rem;
+}
+
+.menu__link.r-link.text-underlined a{
+    color: #ff0100 !important;
+}

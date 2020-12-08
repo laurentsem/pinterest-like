@@ -41,15 +41,5 @@ h1{
 }
 
 button{
-  color: #ff0100;
-  background-color: white;
-  border-radius: 50%;
-  border: 5px #ff0100;
-}
-button:hover{
-  transition-duration: 0.5s;
-  color: #ffffff;
-  background-color: #ff0000;
-  border-radius: 15px 15px 15px;
-  border: 5px #ffffff;
+  display: none;
 }
