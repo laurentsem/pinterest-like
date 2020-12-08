@@ -1,5 +1,5 @@
 // Signup
-// Page d'nscription
+// Page d'inscription
 
 import React, { Component } from 'react';
 

@@ -10,6 +10,8 @@ class NewPost extends Component {
             <h2>Create new Post</h2>
             <form>
                 <input type="text" placeholder="Nom"></input>
+                <input type="text" placeholder="Description"></input>
+                <input type="text" placeholder="Lien URL de la photo"></input>
                 <button type="submit">Submit</button>
             </form>
         </div>    

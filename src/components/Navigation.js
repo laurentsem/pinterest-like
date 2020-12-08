@@ -1,5 +1,5 @@
 // Navigation
-// Menu horizontal du haut à rester fixe + logo à ajouter
+// Menu horizontal fixe + logo à ajouter
 
 import React from 'react';
 import { Link } from 'react-router-dom';
