@@ -3,6 +3,7 @@
 
 import React, { Component, createContext } from 'react';
 import firebase from '../server/firebase';
+import { googleProvider } from "../server/firebase";
 
 export const UserContent = createContext({user: null})
 class LoginWithGoogle extends Component {
@@ -20,9 +21,7 @@ class LoginWithGoogle extends Component {
     }
 
     onSubmit = () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-
-        firebase.auth().signInWithPopup(provider).then((result) => {
+        firebase.auth().signInWithPopup(googleProvider).then((result) => {
         }).catch(function(err) {
             console.log(err.message);
         })
