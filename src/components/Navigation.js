@@ -4,30 +4,42 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+import '../assets/css/nav.css';
+
+
 import * as route from '../constants/index';
 
 const Navigation = () => (
-<div>
-  <nav>
-    <ul>
-      <li>
-        <Link to={route.homepage}>Accueil</Link>
+<div id="indicator">
+  <nav class="page__menu menu">
+    <ul class="menu__list r-list">
+      <li class="menu__group">
+        <a class="menu__link r-link text-underlined">
+          <Link to={route.homepage}>Accueil</Link>
+        </a>
       </li>
-      <li>
+      <li class="menu__group">
+        <a class="menu__link r-link text-underlined">
         <Link to={route.signup}>Inscription</Link>
+      </a>
       </li>
-      <li>
+      <li class="menu__group">
+        <a class="menu__link r-link text-underlined">
         <Link to={route.login}>Login</Link>
+        </a>
       </li>
+      <li class="menu__group">
+        <a class="menu__link r-link text-underlined">
       <li>
         <Link to={route.loginGoogle}>Login w/ Google</Link>
       </li>
       <li>
         <Link to={route.profile}>Profile</Link>
+        </a>
       </li>
     </ul>
   </nav>
 </div>
 );
- 
+
 export default Navigation;

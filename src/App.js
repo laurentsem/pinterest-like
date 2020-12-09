@@ -2,8 +2,9 @@ import './assets/css/App.css';
 
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
-import Home from './components/Home';
+
 import Navigation from './components/Navigation';
+import Home from './components/Home';
 import Footer from './components/Footer';
 import Signup from './components/Signup';
 import Login from './components/Login';
