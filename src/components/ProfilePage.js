@@ -8,6 +8,7 @@ import {Widget, WidgetLoader} from "react-cloudinary-upload-widget";
 class ProfilePage extends Component {
     render() {
         return (
+            <html id="profile">
             <div>
                 <h2>Profile Page</h2>
                 <input type="text" placeholder="Nom"/>
@@ -28,6 +29,7 @@ class ProfilePage extends Component {
                     logging={false} // logs will be provided for success and failure messages,
                 />
             </div>
+            </html>
         )
     }
 }
