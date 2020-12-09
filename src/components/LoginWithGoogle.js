@@ -1,61 +1,61 @@
 // Login w/Google
 // Page de connexion
 
-import React, { Component } from 'react';
+import React, { Component, createContext } from 'react';
 import firebase from '../server/firebase';
 
+export const UserContent = createContext({user: null})
 class LoginWithGoogle extends Component {
 
     constructor(props) {
         super(props);
 
-        this.state = {
+        this.initialState = {
             isLogin: false,
-            name: "",
-            profilePic: ""
+            name: '',
+            profilePic: '',
         }
+
+        this.state = this.initialState;
     }
 
     onSubmit = () => {
         var provider = new firebase.auth.GoogleAuthProvider();
 
-        firebase.auth().signInWithPopup(provider).then(function(result) {
+        firebase.auth().signInWithPopup(provider).then((result) => {
         }).catch(function(err) {
             console.log(err.message);
         })
     }
 
     Logout = () => {
-        firebase.auth().signOut().then(function() {
-           console.log('Logged out')
+        firebase.auth().signOut().then(() => {
+            console.log('Logged out');
+            this.setState(() => (this.initialState));
         }).catch(function(err) {
             console.log(err.message)
         })
     }
 
     componentDidMount = () => {
-        firebase.auth().onAuthStateChanged(function(user) {
+        firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
-                console.log("User logged");
-                console.log(user.displayName)
-                this.setState = ({
+                this.setState(() => ({ 
                     isLogin: true,
                     name: user.displayName,
                     profilePic: user.photoURL
-                })
+                })); 
             } else {
                 console.log("User not logged");
             }
         })
     }
-    
+ 
     render() {
         return (
             <div>
             <h2>LoginWithGoogle</h2>
-        <p>Status : {this.state.isLogin}</p>
-        <p>Name: {this.state.name}</p>
-        <button onClick={() => this.Logout()}>Logout</button>
+
             {this.state.isLogin === false ? 
              <button onClick={() => this.onSubmit()}>Login with Google</button>
              :
@@ -64,7 +64,7 @@ class LoginWithGoogle extends Component {
             <button onClick={() => this.Logout()}>Logout</button>
              </>    
         }
-        </div>    
+        </div>
         )
     }
 }
