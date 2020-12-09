@@ -13,7 +13,7 @@ class ProfilePage extends Component {
                 <input type="text" placeholder="Nom"/>
                 <WidgetLoader/>
                 <Widget
-                    sources={['local', 'url', 'camera']} // set the sources available for uploading -> by default
+                    sources={['local', 'url', 'image_search', 'camera']} // set the sources available for uploading -> by default
                     resourceType={'image'} // optionally set with 'auto', 'image', 'video' or 'raw' -> default = 'auto'
                     cloudName={'dp2k3zmzy'} // your cloudinary account cloud name.
                     uploadPreset={'preset_unsigned'} // check that an upload preset exists and check mode is signed or unisgned
