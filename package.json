@@ -12,6 +12,7 @@
     "cloudinary-react": "^1.6.8",
     "dotenv": "^8.2.0",
     "firebase": "^8.1.2",
+    "node-sass": "^4.14.1",
     "react": "^17.0.1",
     "react-bootstrap": "^1.4.0",
     "react-cloudinary-upload-widget": "^1.2.7",
