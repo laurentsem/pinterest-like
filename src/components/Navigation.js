@@ -32,7 +32,11 @@ const Navigation = () => (
         <a class="menu__link r-link text-underlined"><Link to={route.loginGoogle}>Login w/ Google</Link> </a>
       </li>
       <li class="menu__group">
-        <a><Link to={route.profile}>Profile</Link>
+        <a class="menu__link r-link text-underlined"><Link to={route.profile}>Profile</Link>
+        </a>
+      </li>
+      <li class="menu__group">
+        <a class="menu__link r-link text-underlined"><Link to={route.newPost}>Publier</Link>
         </a>
       </li>
     </ul>
