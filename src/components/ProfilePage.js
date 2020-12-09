@@ -2,6 +2,7 @@
 // Affiche les informations de l'utilisateur
 
 import React, {Component} from 'react';
+import "../assets/css/profile.css"
 import {Widget, WidgetLoader} from "react-cloudinary-upload-widget";
 
 class ProfilePage extends Component {
@@ -19,10 +20,10 @@ class ProfilePage extends Component {
                     style={{
                         color: 'white',
                         border: 'none',
-                        width: '120px',
+                        width: '100px',
                         backgroundColor: 'green',
                         borderRadius: '4px',
-                        height: '25px'
+                        height: '50px'
                     }} // inline styling only or style id='cloudinary_upload_button'
                     logging={false} // logs will be provided for success and failure messages,
                 />
