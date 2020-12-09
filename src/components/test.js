@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import {Image, CloudinaryContext, Transformation} from 'cloudinary-react';
 import {WidgetLoader, Widget} from 'react-cloudinary-upload-widget'
+import axios from 'axios';
+
 
 class test extends Component {
     render() {
