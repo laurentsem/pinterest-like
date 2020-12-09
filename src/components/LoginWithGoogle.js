@@ -1,11 +1,10 @@
 // Login w/Google
 // Page de connexion
 
-import React, { Component, createContext } from 'react';
+import React, { Component } from 'react';
 import firebase from '../server/firebase';
 import { googleProvider } from "../server/firebase";
 
-export const UserContent = createContext({user: null})
 class LoginWithGoogle extends Component {
 
     constructor(props) {
@@ -48,6 +47,10 @@ class LoginWithGoogle extends Component {
                 console.log("User not logged");
             }
         })
+    }
+
+    componentWillUnmount = () => {
+        this.setState(() => (this.initialState));
     }
  
     render() {
