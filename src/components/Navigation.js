@@ -29,12 +29,10 @@ const Navigation = () => (
         </a>
       </li>
       <li class="menu__group">
-        <a class="menu__link r-link text-underlined">
-      <li>
-        <Link to={route.loginGoogle}>Login w/ Google</Link>
+        <a class="menu__link r-link text-underlined"><Link to={route.loginGoogle}>Login w/ Google</Link> </a>
       </li>
-      <li>
-        <Link to={route.profile}>Profile</Link>
+      <li class="menu__group">
+        <a><Link to={route.profile}>Profile</Link>
         </a>
       </li>
     </ul>
