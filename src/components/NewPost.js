@@ -2,12 +2,14 @@
 // Formulaire pour poster une image
 
 import React, { Component } from 'react';
-import {Widget, WidgetLoader} from "react-cloudinary-upload-widget";
-import dotenv from 'dotenv';
-dotenv.config();
+import { Widget, WidgetLoader } from "react-cloudinary-upload-widget";
+import firebase from 'firebase/app';
+import { getData } from '../server/functions';
+const db = firebase.firestore();
+
 
 class NewPost extends Component {
-    render() {
+     render() {
         return (
         <div>
             <h2>Create new Post</h2>
@@ -17,6 +19,9 @@ class NewPost extends Component {
                 <input type="text" placeholder="Lien URL de la photo"></input>
                 <button type="submit">Submit</button>
             </form>
+
+            <h2>Test data</h2>
+            <button type="button" onClick={() => getData}>Get all data in console</button>
 
             <WidgetLoader/>
                 <Widget

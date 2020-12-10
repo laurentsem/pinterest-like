@@ -13,8 +13,9 @@ class LoginWithGoogle extends Component {
 
         this.initialState = {
             isLogin: false,
-            name: '',
-            profilePic: '',
+            getName: '',
+            getProfilePic: '',
+            getId: ''
         }
 
         this.state = this.initialState;
@@ -39,10 +40,13 @@ class LoginWithGoogle extends Component {
     componentDidMount = () => {
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
+                console.log(user)
                 this.setState(() => ({ 
                     isLogin: true,
-                    name: user.displayName,
-                    profilePic: user.photoURL
+                    getName: user.displayName,
+                    getProfilePic: user.photoURL, 
+                    getId: user.uid
+                    
                 })); 
             } else {
                 console.log("User not logged");
@@ -59,7 +63,8 @@ class LoginWithGoogle extends Component {
              <button onClick={() => this.onSubmit()}>Login with Google</button>
              :
              <>
-             <p>Name : {this.state.name}</p>
+             <p>Name : {this.state.getName}</p>
+            <p>UID : {this.state.getId}</p>
             <button onClick={() => this.Logout()}>Logout</button>
              </>    
         }
