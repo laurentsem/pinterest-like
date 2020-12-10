@@ -1,11 +1,17 @@
-import { render } from 'node-sass'
-import React from 'react'
+import React, { Component } from "react";
+import axios from "axios";
 
-function Post() {
-    render() {
-        return (
-            <div>
-            </div>
-        )
+class Post extends Component {
+    constructor( props ) {
+        super( props );
+        this.state = {
+            allPosts: [],
+            postId: '',
+            title: '',
+            userId: '',
+            description: '',
+            photoUrl: ''
+        }
     }
+
 }

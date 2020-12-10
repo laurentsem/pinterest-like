@@ -1,0 +1,30 @@
+const { admin } = require('../firebase');
+// const auth = admin.auth();
+const db = admin.firestore();
+const { v4: uuidv4 } =require('uuid');
+
+async function createOnePost(postData) {
+    const id = uuidv4();
+    const result = await db.collection('posts').doc(id).set(postData);
+    console.log(result);
+    return result
+}
+
+async function onePostById() {
+    const result = await db.collection('posts').get();
+    console.log(result);
+    return result
+}
+
+async function recentPosts(postData) {
+    const id = uuidv4();
+    const result = await db.collection('posts').doc(id).set(postData);
+    console.log(result);
+    return result
+}
+
+exports.createOnePost = createOnePost;
+exports.onePostById = onePostById;
+exports.recentPosts = recentPosts;
+
+// appele seulement db.collection()
