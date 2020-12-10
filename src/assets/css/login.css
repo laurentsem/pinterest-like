@@ -156,3 +156,6 @@
         bottom: 100%;
     }
 }
+button#hidbutton.hidbutton{
+    display: none !important;
+}
