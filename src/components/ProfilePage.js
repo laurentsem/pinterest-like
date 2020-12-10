@@ -7,10 +7,12 @@ import "../assets/css/profile.css"
 class ProfilePage extends Component {
     render() {
         return (
+            <html id="profile">
             <div>
                 <h2>Profile Page</h2>
                 <input type="text" placeholder="Nom"/>
             </div>
+            </html>
         )
     }
 }
