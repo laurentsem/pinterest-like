@@ -1,8 +1,8 @@
 const { admin } = require('firebase');
-const { createOnePost, onePostById, recentPosts } = require('./services/postService');
+const { createOnePost, onePostById, getRecentPosts } = require('./services/postService');
 
 async function tests() {
-    const result = await createOnePost({name: 'test', description: 'desc test'});
+    const result = await getRecentPosts();
     console.log(result);
 }
 
