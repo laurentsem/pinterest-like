@@ -40,13 +40,13 @@ class LoginWithGoogle extends Component {
         firebase.auth().onAuthStateChanged(async (user) => {
             if (user) {
                 console.log(user)
-                this.setState(() => ({ 
+                this.setState(() => ({
                     isLogin: true,
                     getName: user.displayName,
-                    getProfilePic: user.photoURL, 
+                    getProfilePic: user.photoURL,
                     getId: user.uid
-                    
-                })); 
+
+                }));
             } else {
                 console.log("User not logged");
             }
@@ -56,20 +56,19 @@ class LoginWithGoogle extends Component {
     componentWillUnmount = () => {
         this.setState(() => (this.initialState));
     }
- 
+
     render() {
         return (
             <div>
-            <h2>LoginWithGoogle</h2>
-
-            {this.state.isLogin === false ? 
+                <br/>
+            {this.state.isLogin === false ?
              <button onClick={() => this.onSubmit()}>Login with Google</button>
              :
              <>
              <p>Name : {this.state.getName}</p>
             <p>UID : {this.state.getId}</p>
             <button onClick={() => this.Logout()}>Logout</button>
-             </>    
+             </>
         }
         </div>
         )

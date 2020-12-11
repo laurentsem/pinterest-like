@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import "../assets/css/profile.css"
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
-
+import Signup from "./Signup";
 class ProfilePage extends Component{
     constructor(props) {
         super(props);
@@ -29,13 +29,6 @@ class ProfilePage extends Component{
             <html id="profile">
             <div>
                 <h2>Profile Page</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        <input  type="text" placeholder="Nom" color="black" value={this.state.value} onChange={this.handleChange} />
-                    </label>
-                </form>
-
-
             </div>
             <CloudinaryContext cloudName="dp2k3zmzy">
                 <div className="container gal-container profile">
@@ -46,9 +39,7 @@ class ProfilePage extends Component{
                     </div>
                 </div>
             </CloudinaryContext>
-            <div class="info">
-                <span onChange={this.handleChange} >Pseudo:{this.state.value}</span>
-            </div>
+            <Signup/>
             </html>
         )
     }
