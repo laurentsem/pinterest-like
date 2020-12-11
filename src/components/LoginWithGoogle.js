@@ -1,9 +1,9 @@
 // Login w/Google
 // Page de connexion
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 import firebase from '../server/firebase';
-import { googleProvider } from "../server/firebase";
+import {googleProvider} from "../server/firebase";
 
 class LoginWithGoogle extends Component {
 
@@ -22,7 +22,7 @@ class LoginWithGoogle extends Component {
 
     onSubmit = () => {
         firebase.auth().signInWithPopup(googleProvider).then((result) => {
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(err.message);
         })
     }
@@ -31,7 +31,7 @@ class LoginWithGoogle extends Component {
         firebase.auth().signOut().then(() => {
             console.log('Logged out');
             this.setState(() => (this.initialState));
-        }).catch(function(err) {
+        }).catch(function (err) {
             console.log(err.message)
         })
     }
@@ -61,16 +61,16 @@ class LoginWithGoogle extends Component {
         return (
             <div>
                 <br/>
-            {this.state.isLogin === false ?
-             <button onClick={() => this.onSubmit()}>Login with Google</button>
-             :
-             <>
-             <p>Name : {this.state.getName}</p>
-            <p>UID : {this.state.getId}</p>
-            <button onClick={() => this.Logout()}>Logout</button>
-             </>
-        }
-        </div>
+                {this.state.isLogin === false ?
+                    <button onClick={() => this.onSubmit()}>Login with Google</button>
+                    :
+                    <>
+                        <p>Name : {this.state.getName}</p>
+                        <p>UID : {this.state.getId}</p>
+                        <button onClick={() => this.Logout()}>Logout</button>
+                    </>
+                }
+            </div>
         )
     }
 }
