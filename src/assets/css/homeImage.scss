@@ -51,8 +51,10 @@
 
 .location-listing:hover .location-image image {
   filter: blur(2px);
+  border-radius: 20px;
 }
 img{
+  border-radius: 20px;
   justify-content: space-around;
   margin: 5px;
   padding: 5px;
