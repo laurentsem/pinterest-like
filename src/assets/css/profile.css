@@ -11,7 +11,7 @@ html.profile button{
 }
 .profile @media (prefers-color-scheme: dark) {
 
-    html {
+    html .profile{
         background-color: black;
         color: white;
         filter: invert(1) hue-rotate(.5turn);
@@ -25,4 +25,20 @@ html.profile button{
         opacity: .7;
         transition: opacity .25s ease-in-out;
     }
+}
+
+span{
+    font-family: "Fira Code Light", serif;
+    font-size: 50px;
+    display: block;
+}
+
+.container.gal-container.profile{
+    display: flex;
+    height: 200px!important;
+    flex: content;
+    float:left;
+}
+div .info{
+    height: 200px!important;
 }

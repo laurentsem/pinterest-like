@@ -1,10 +1,12 @@
 /*	gallery */
+import $ from 'jquery'; 
+
 $(document).ready(function(){
 
     $(".filter-button").click(function(){
         var value = $(this).attr('data-filter');
 
-        if(value == "all")
+        if(value === "all")
         {
             $('.filter').show('1000');
         }
@@ -22,11 +24,3 @@ $(document).ready(function(){
     });
 });
 /*	end gallery */
-
-$(document).ready(function(){
-    $(".fancybox").fancybox({
-        openEffect: "none",
-        closeEffect: "none"
-    });
-});
-
