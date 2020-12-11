@@ -19,3 +19,5 @@ router.get('/recentPosts', recentPosts);
 router.get('/delPost/:id', deleteOnePostById);
 
 router.post('/upPost/:id', updateOnePostById);
+
+module.exports = router;
