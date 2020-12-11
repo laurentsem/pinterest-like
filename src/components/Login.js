@@ -1,8 +1,8 @@
 // Login
 // Page de connexion
-import"../assets/css/login.css"
+import "../assets/css/login.css"
 
-import React, { Component } from 'react';
+import React, {Component} from 'react';
 
 class Login extends Component {
     render() {
@@ -11,19 +11,19 @@ class Login extends Component {
                 <h2>Connectez-vous !</h2>
                 <form>
 
-                <div class="user-box">
-                <input type="text" name="" required="" placeholder="Pseudo"/>
-                <input type="password" name="" required="" placeholder="Mot de passe"/>
-                    <a href="#">
-                        <span/>
-                        <span/>
-                        <span/>
-                        <span/>
-                        <button type="button">Se connecter</button>
-                        Se connecter
-                    </a>
+                    <div class="user-box">
+                        <input type="text" name="" required="" placeholder="Pseudo"/>
+                        <input type="password" name="" required="" placeholder="Mot de passe"/>
+                        <a href="#">
+                            <span/>
+                            <span/>
+                            <span/>
+                            <span/>
+                            <button class="hidbutton" id="hidbutton" type="button">Se connecter</button>
+                            Se connecter
+                        </a>
 
-        </div>
+                    </div>
                 </form>
 
             </div>

@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import ProfilePage from './components/ProfilePage';
 import LoginWithGoogle from './components/LoginWithGoogle';
+import NewPost from './components/NewPost';
 
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
       <Route path="/login" component={Login} />
       <Route path="/profile" component={ProfilePage} />
       <Route path="/loginGoogle" component={LoginWithGoogle} />
+      <Route path="/newPost" component={NewPost} />
      </Switch>
      </Router>
      <Home />

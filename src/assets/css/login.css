@@ -1,15 +1,15 @@
 
 .login-box {
-    position: absolute;
-    top: 50%;
-    left: 50%;
     width: 400px;
     padding: 40px;
-    transform: translate(-50%, -50%);
-    background: rgb(255, 255, 255);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
     box-sizing: border-box;
     box-shadow: 0 15px 25px rgba(0,0,0,.6);
     border-radius: 10px;
+    justify-content: center;
 }
 
 .login-box h2 {
@@ -20,7 +20,6 @@
 }
 
 .login-box .user-box {
-    position: relative;
 }
 
 .login-box .user-box input {
@@ -35,9 +34,6 @@
     background: transparent;
 }
 .login-box .user-box label {
-    position: absolute;
-    top:0;
-    left: 0;
     padding: 10px 0;
     font-size: 16px;
     color: #fff;
@@ -83,9 +79,6 @@
 }
 
 .login-box a span:nth-child(1) {
-    top: 0;
-    left: -100%;
-    width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, #ff0000);
     animation: btn-anim1 1s linear infinite;
@@ -155,4 +148,7 @@
     50%,100% {
         bottom: 100%;
     }
+}
+button#hidbutton.hidbutton{
+    display: none !important;
 }
