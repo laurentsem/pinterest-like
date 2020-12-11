@@ -9,7 +9,6 @@ import Footer from './components/Footer';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import ProfilePage from './components/ProfilePage';
-import LoginWithGoogle from './components/LoginWithGoogle';
 import NewPost from './components/NewPost';
 
 
@@ -22,7 +21,6 @@ function App() {
       <Route path="/signup" component={Signup} />
       <Route path="/login" component={Login} />
       <Route path="/profile" component={ProfilePage} />
-      <Route path="/loginGoogle" component={LoginWithGoogle} />
       <Route path="/newPost" component={NewPost} />
      </Switch>
      </Router>

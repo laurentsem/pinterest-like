@@ -20,16 +20,8 @@ const Navigation = () => (
       </li>
       <li class="menu__group">
         <a class="menu__link r-link text-underlined">
-        <Link to={route.signup}>Inscription</Link>
-      </a>
-      </li>
-      <li class="menu__group">
-        <a class="menu__link r-link text-underlined">
         <Link to={route.login}>Login</Link>
         </a>
-      </li>
-      <li class="menu__group">
-        <a class="menu__link r-link text-underlined"><Link to={route.loginGoogle}>Login w/ Google</Link> </a>
       </li>
       <li class="menu__group">
         <a class="menu__link r-link text-underlined"><Link to={route.profile}>Profile</Link>

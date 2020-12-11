@@ -26,3 +26,19 @@ html.profile button{
         transition: opacity .25s ease-in-out;
     }
 }
+
+span{
+    font-family: "Fira Code Light", serif;
+    font-size: 50px;
+    display: block;
+}
+
+.container.gal-container.profile{
+    display: flex;
+    height: 200px!important;
+    flex: content;
+    float:left;
+}
+div .info{
+    height: 200px!important;
+}
