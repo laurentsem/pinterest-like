@@ -11,7 +11,7 @@ html.profile button{
 }
 .profile @media (prefers-color-scheme: dark) {
 
-    html {
+    html .profile{
         background-color: black;
         color: white;
         filter: invert(1) hue-rotate(.5turn);
