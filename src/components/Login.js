@@ -12,8 +12,8 @@ class Login extends Component {
                 <form>
 
                     <div class="user-box">
-                        <input type="text" name="" required="" placeholder="Pseudo"/>
-                        <input type="password" name="" required="" placeholder="Mot de passe"/>
+                        <input type="text" name="" required="" placeholder="  Pseudo"/>
+                        <input type="password" name="" required="" placeholder="  Mot de passe"/>
                         <a href="#">
                             <span/>
                             <span/>
