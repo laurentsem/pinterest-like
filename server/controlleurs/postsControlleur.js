@@ -1,4 +1,4 @@
-const postService = require('../services/postService');
+const postService = require('../services/postsService');
 
 async function createOnePost(req, res) {
     const result = await postService.createOnePost(req.body);
