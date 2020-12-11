@@ -9,6 +9,7 @@ const db = firebase.firestore();
 
 
 class NewPost extends Component {
+    
      render() {
         return (
         <div>

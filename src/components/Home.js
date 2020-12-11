@@ -9,9 +9,10 @@ class Home extends Component {
         posts: []
     }
     componentDidMount() {
-        axios.get('http://localhost:5000/recentPosts')
+        axios.get('http://localhost:5000/posts')
             .then(res => {
                 const posts = res.data;
+                console.log(posts)
                 this.setState({posts})
             })
     }
@@ -19,7 +20,7 @@ class Home extends Component {
         return (
         <div>
             <ul>
-                {this.state.posts.map(post => <li>{post.name}</li>)}
+                {this.state.posts.map(post => <li>{post.description}</li>)}
             </ul>
         </div>
         )
