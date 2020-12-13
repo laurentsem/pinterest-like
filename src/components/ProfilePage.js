@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import "../assets/css/profile.css"
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
-import Signup from "./Signup";
+
 class ProfilePage extends Component{
     constructor(props) {
         super(props);
@@ -39,7 +39,6 @@ class ProfilePage extends Component{
                     </div>
                 </div>
             </CloudinaryContext>
-            <Signup/>
             </html>
         )
     }

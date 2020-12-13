@@ -24,6 +24,11 @@ const Navigation = () => (
         </a>
       </li>
       <li class="menu__group">
+        <a class="menu__link r-link text-underlined">
+        <Link to={route.signup}>S'inscrire</Link>
+        </a>
+      </li>
+      <li class="menu__group">
         <a class="menu__link r-link text-underlined"><Link to={route.profile}>Profile</Link>
         </a>
       </li>

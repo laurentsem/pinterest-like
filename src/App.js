@@ -24,7 +24,6 @@ function App() {
       <Route path="/newPost" component={NewPost} />
      </Switch>
      </Router>
-     <Home />
     <Footer />
     </div>
   );

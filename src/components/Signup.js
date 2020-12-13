@@ -1,5 +1,6 @@
 // Signup
 // Page d'inscription
+
 import "../assets/css/singin.scss"
 
 import React, {Component} from 'react';
