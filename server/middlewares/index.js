@@ -11,4 +11,6 @@ async function middlewareVerifyAuth(req, res, next) {
     next();
 }
 
+// TODO : verifyAuth with Google
+
 exports.middlewareVerifyAuth = middlewareVerifyAuth;

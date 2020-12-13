@@ -1,13 +1,44 @@
-button{
+
+html.profile button{
     font-size: 13px;
     font-family: "Fira Code Light", serif;
-    display: flex !important;
 }WidgetLoader{
     font-size: 13px;
      font-family: "Fira Code Light", serif;
-     display: flex !important;
 }Widget{
     font-size: 13px;
       font-family: "Fira Code Light", serif;
-    display: flex !important;
+}
+.profile @media (prefers-color-scheme: dark) {
+
+    html .profile{
+        background-color: black;
+        color: white;
+        filter: invert(1) hue-rotate(.5turn);
+    }
+
+    img {
+        filter: invert(1) hue-rotate(.5turn);
+    }
+
+    img:not(:hover) {
+        opacity: .7;
+        transition: opacity .25s ease-in-out;
+    }
+}
+
+span{
+    font-family: "Fira Code Light", serif;
+    font-size: 50px;
+    display: block;
+}
+
+.container.gal-container.profile{
+    display: flex;
+    height: 200px!important;
+    flex: content;
+    float:left;
+}
+div .info{
+    height: 200px!important;
 }
