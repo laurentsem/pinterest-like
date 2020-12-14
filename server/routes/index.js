@@ -1,6 +1,7 @@
 const { middlewareVerifyAuth } = require('../middlewares/index');
 const { recentPosts, createOnePost, deleteOnePostById, onePostById , updateOnePostById } = require('../controlleurs/postsControlleur');
 const { postOneComment, allCommentsByOnePost, allCommentsByOneUser, deleteOneCommentById, getOneCommentById, updateOneCommentById } = require('../controlleurs/commentsController');
+const { addPostToPlaylist, removePostToPlaylist, getOnePlaylistById, allPlaylistsByOneUser, deleteOnePlaylistById, updateOnePlaylistById } = require('../controlleurs/playlistsController');
 const Router = require('express').Router;
 const router = Router();
 
@@ -34,3 +35,17 @@ router.get('/commentsOfUser/:id', allCommentsByOneUser);
 router.get('/delComments/:id', deleteOneCommentById);
 
 router.post('/upComments/:id', updateOneCommentById);
+
+/////////////////////////////////////////////////
+
+router.post('/post/:id/addPostToPlaylist', addPostToPlaylist);
+
+router.post('/post/:id/removePostToPlaylist', removePostToPlaylist);
+
+router.get('/playlist/:id', getOnePlaylistById);
+
+router.get('/playlistOfUser/:id', allPlaylistsByOneUser);
+
+router.get('/delComments/:id', deleteOnePlaylistById);
+
+router.post('/upComments/:id', updateOnePlaylistById);
