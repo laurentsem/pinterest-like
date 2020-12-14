@@ -5,6 +5,7 @@
 
   html {
     filter: invert(1) hue-rotate(.5turn);
+    opacity: .85;
   }
 
   img {

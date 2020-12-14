@@ -1,4 +1,4 @@
-export const homepage = '/';
+export const homepage = '/home';
 export const login = '/login';
 export const signup = '/signup';
 export const forgotPwd = '/pwd-forget';
