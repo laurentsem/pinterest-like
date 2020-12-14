@@ -14,7 +14,8 @@ class LoginWithGoogle extends Component {
             isLogin: false,
             getName: '',
             getProfilePic: '',
-            getId: ''
+            getId: '',
+            getToken: ''
         }
 
         this.state = this.initialState;

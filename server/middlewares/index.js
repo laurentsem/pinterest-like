@@ -1,6 +1,5 @@
 const { verifyUserToken } = require('../services/auth')
 
-
 async function middlewareVerifyAuth(req, res, next) {
     const token = req.query.token
     const decodedToken = await verifyUserToken(token)
