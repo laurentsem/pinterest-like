@@ -13,7 +13,6 @@
   }
 
   img:not(:hover) {
-    opacity: .7;
     transition: opacity .25s ease-in-out;
   }
 }
