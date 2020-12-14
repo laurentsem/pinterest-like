@@ -19,9 +19,7 @@ class NewPost extends Component {
 
     titleOnChange = e => {
         this.setState({
-            title: e.target.value,
-            description: e.target.value,
-            imageURL: e.target.value
+            title: e.target.value
         })
     }
 
@@ -47,8 +45,10 @@ class NewPost extends Component {
             imageURL: this.state.imageURL
         };
         axios.post("http://localhost:5000/posts", data)
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
+            .then(res =>
+                console.log(res))
+            .catch(err =>
+                console.log(err))
     }
 
      render() {
