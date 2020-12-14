@@ -2,6 +2,7 @@
 const { recentPosts, createOnePost, deleteOnePostById, onePostById , updateOnePostById } = require('../controlleurs/postControlleur');
 const Router = require('express').Router;
 const router = Router();
+const {multerUploads} = require('../middlewares/multer');
 
 //router.use(middlewareVerifyAuth);
 /*
@@ -11,7 +12,7 @@ app.get('/', function (req, res) {
 */
 
 // Create a new Post
-router.post('/posts', createOnePost);
+router.post('/posts', multerUploads, createOnePost);
 
 // Get all posts
 router.get('/posts', recentPosts);

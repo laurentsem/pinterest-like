@@ -1,6 +1,27 @@
 const postService = require('../services/postService');
+const {Duplex} = require('stream');
+const { cloudinary } = require('../cloudinary');
+
+
+function bufferToStream(buf) {
+    let tmp = new Duplex();
+    tmp.push(buf);
+    tmp.push(null);
+    return tmp;
+}
 
 async function createOnePost(req, res) {
+    if(req.file) {
+        const uploadStream = cloudinary.uploader.upload_stream({folder: "uploads"},
+            function(error, result) {
+                console.log(result);
+                res.json(result.public_id);
+                let publicId;
+                return publicId = result.public_id
+            });
+        const fileStream = bufferToStream(req.file.buffer);
+        fileStream.pipe(uploadStream);
+    }
     const result = await postService.createOnePost(req.body);
     res.json(result)
 }
