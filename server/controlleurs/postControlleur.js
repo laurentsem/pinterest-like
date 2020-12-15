@@ -12,19 +12,29 @@ function bufferToStream(buf) {
 
 async function createOnePost(req, res) {
     if(req.file) {
+        console.log('In file...')
         const uploadStream = cloudinary.uploader.upload_stream({folder: "uploads"},
-            function(error, result) {
-                console.log(result);
-                res.json(result.public_id);
-                let publicId;
-                return publicId = result.public_id
+            async function (error, result) {
+                req.body.imageURL = result.public_id;
+                const createPost = await postService.createOnePost(req.body);
+                res.json(createPost);
             });
         const fileStream = bufferToStream(req.file.buffer);
         fileStream.pipe(uploadStream);
     }
-    const result = await postService.createOnePost(req.body);
-    res.json(result)
-}
+    else {
+    const upload = cloudinary.uploader.upload(req.body.imageURL, {folder: "uploads"},
+        async function(err, result) {
+            console.log("Link req.body before: " + req.body.imageURL);
+            console.log("Link from Cloud: " + result.public_id);
+            req.body.imageURL = result.public_id;
+            console.log("Link after req.body change: " + req.body.imageURL);
+            const createPost = await postService.createOnePost(req.body);
+            res.json(createPost)
+    })
+    //const result = await postService.createOnePost(req.body);
+    //res.json(result)
+}}
 
 async function onePostById(req, res) {
     const result = await postService.onePostById();

@@ -8,11 +8,15 @@ const db = firebase.firestore();
 
 
 class NewPost extends Component {
+    constructor(props) {
+        super(props);
+        this.fileInput = React.createRef();
+    }
 
     state = {
         title: '',
         description: '',
-        imageURL: '',
+        imageURL: ''
     }
 
     titleOnChange = e => {
@@ -48,7 +52,8 @@ class NewPost extends Component {
             description: this.state.description,
             imageURL: this.state.imageURL
         };
-        axios.post("http://localhost:5000/posts", data)
+
+        axios.post("http://localhost:5000/posts", data, )
             .then(res =>
                 console.log(res))
             .catch(err =>
@@ -100,8 +105,9 @@ class NewPost extends Component {
 
 
                 <input type="file"
-                       id="cloudinary" name="cloudinary"
+                       id="cloudinary" name="image"
                        onChange={this.imageURLOnChange}
+                       ref={this.fileInput}
                        required="required"
                 />
                 <input type="url"
