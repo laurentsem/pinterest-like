@@ -7,7 +7,6 @@ const db = admin.firestore();
 const { v4: uuidv4 } = require('uuid');
 
 async function createOnePost(postData) {
-    //const id = uuidv4();
     const result = await db.collection('posts').doc().set(postData);
     return result
 }
@@ -17,7 +16,6 @@ async function onePostById(id) {
     return result
 }
 
-// TODO: get avec la date la plus récente
 async function getRecentPosts() {
     const recentPosts = [];
     const result = await db.collection('posts').get();

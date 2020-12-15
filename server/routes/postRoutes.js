@@ -18,7 +18,7 @@ router.post('/posts', multerUploads, createOnePost);
 router.get('/posts', recentPosts);
 
 // Get One Post By Id
-router.get('/post/:id', onePostById);
+router.get('/posts/:id', onePostById);
 
 // Delete One Post with ID
 router.delete('/delPost/:id', deleteOnePostById);

@@ -34,7 +34,7 @@ class NewPost extends Component {
 
     uploadImageOnChange = e => {
         this.setState({
-            imageURL: e.target.value
+            selectedImage: e.target.value
         })
     };
 
@@ -80,7 +80,7 @@ class NewPost extends Component {
         return (
         <div>
             <h2>Create new Post</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form enctype="multipart/form-data" onSubmit={this.handleSubmit}>
                 <input type="text"
                        placeholder="Nom"
                        onChange={this.titleOnChange}
