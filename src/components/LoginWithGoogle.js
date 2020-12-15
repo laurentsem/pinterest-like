@@ -45,10 +45,9 @@ class LoginWithGoogle extends Component {
                     getName: user.displayName,
                     getProfilePic: user.photoURL,
                     getId: user.uid
-
                 }));
             } else {
-                console.log("User not logged");
+                console.log("users not logged");
             }
         })
     }

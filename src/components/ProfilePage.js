@@ -3,9 +3,10 @@
 
 import React, {Component} from 'react';
 import "../assets/css/profile.css"
+import "../assets/css/StyleSelect.scss"
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
 
-class ProfilePage extends Component{
+class ProfilePage extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -24,6 +25,7 @@ class ProfilePage extends Component{
         alert('Un essai a été envoyé : ' + this.state.value);
         event.preventDefault();
     }
+
     render() {
         return (
             <html id="profile">
@@ -39,6 +41,16 @@ class ProfilePage extends Component{
                     </div>
                 </div>
             </CloudinaryContext>
+            <div class="parameter">
+                <div className="select">
+                    <select name="slct" id="slct">
+                        <option selected disabled>Choose an option</option>
+                        <option value="1">Pure CSS</option>
+                        <option value="2">No JS</option>
+                        <option value="3">Nice!</option>
+                    </select>
+                </div>
+            </div>
             </html>
         )
     }

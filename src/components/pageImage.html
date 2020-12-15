@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <style>
+        * {
+            transition-duration: 50ms;
+        }
+
+        html {
+            background-color: #f0f0f0;
+            content: normal;
+            display: block;
+            justify-content: center;
+        }
+
+        @media (prefers-color-scheme: dark) {
+
+            html {
+                filter: invert(1) hue-rotate(.5turn);
+                opacity: .85;
+            }
+
+            img {
+                filter: invert(1) hue-rotate(.5turn);
+            }
+
+            img:not(:hover) {
+                transition: opacity .25s ease-in-out;
+            }
+        }
+
+        .App {
+            text-align: center;
+        }
+
+        .App-logo {
+            height: 40vmin;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .App-logo {
+                animation: App-logo-spin infinite 20s linear;
+            }
+        }
+
+        .App-header {
+            background-color: #ebecf0;
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-size: calc(10px + 2vmin);
+            color: #d40000;
+        }
+
+        .App-link {
+            color: #ff0100;
+        }
+
+        @keyframes App-logo-spin {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        h1 {
+            color: #ff0100;
+        }
+
+        footer {
+            color: #AE1100;
+        }
+
+        div {
+            justify-content: center;
+            display: block;
+            flex: auto;
+            text-align: center;
+        }
+
+        div.proposition {
+            justify-content: space-around;
+            display: inline-flex;
+            flex: auto;
+            padding: 5px;
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    <title>image</title>
+</head>
+<body>
+<div>
+    <h1>image</h1>
+    <a href="https://res.cloudinary.com/demo/image/upload/sample.jpg"><img
+            src="https://res.cloudinary.com/demo/image/upload/sample.jpg" alt="image"/></a>
+</div>
+<div>
+    <div>
+        <textarea cols="30" rows="5" class="commentaire" placeholder="Comentaire"/>
+    </div>
+    <div class="proposition">
+        <a href="https://res.cloudinary.com/dp2k3zmzy/image/upload/v1607519640/w_300,h_200,c_crop/btpuisxuwrgxtlcohbf3.jpg"><img
+                src="https://res.cloudinary.com/dp2k3zmzy/image/upload/w_300,h_200,c_crop/v1607519640/btpuisxuwrgxtlcohbf3.jpg"
+                alt="image"/></a>
+    </div>
+    <div class="proposition">
+        <a href="https://res.cloudinary.com/dp2k3zmzy/image/upload/v1607519640/w_300,h_200,c_crop/btpuisxuwrgxtlcohbf3.jpg"><img
+                src="https://res.cloudinary.com/dp2k3zmzy/image/upload/w_300,h_200,c_crop/v1607519640/btpuisxuwrgxtlcohbf3.jpg"
+                alt="image"/></a>
+    </div>
+    <div class="proposition">
+        <a href="https://res.cloudinary.com/dp2k3zmzy/image/upload/v1607519640/w_300,h_200,c_crop/btpuisxuwrgxtlcohbf3.jpg"><img
+                src="https://res.cloudinary.com/dp2k3zmzy/image/upload/w_300,h_200,c_crop/v1607519640/btpuisxuwrgxtlcohbf3.jpg"
+                alt="image"/></a>
+    </div>
+    <div class="proposition">
+        <a href="https://res.cloudinary.com/dp2k3zmzy/image/upload/v1607519640/w_300,h_200,c_crop/btpuisxuwrgxtlcohbf3.jpg"><img
+                src="https://res.cloudinary.com/dp2k3zmzy/image/upload/w_300,h_200,c_crop/v1607519640/btpuisxuwrgxtlcohbf3.jpg"
+                alt="image"/></a>
+    </div>
+    <div class="proposition">
+        <a href="https://res.cloudinary.com/dp2k3zmzy/image/upload/v1607519640/w_300,h_200,c_crop/btpuisxuwrgxtlcohbf3.jpg"><img
+                src="https://res.cloudinary.com/dp2k3zmzy/image/upload/w_300,h_200,c_crop/v1607519640/btpuisxuwrgxtlcohbf3.jpg"
+                alt="image"/></a>
+    </div>
+    <div class="proposition">
+        <a href="https://res.cloudinary.com/dp2k3zmzy/image/upload/v1607519640/w_300,h_200,c_crop/btpuisxuwrgxtlcohbf3.jpg"><img
+                src="https://res.cloudinary.com/dp2k3zmzy/image/upload/w_300,h_200,c_crop/v1607519640/btpuisxuwrgxtlcohbf3.jpg"
+                alt="image"/></a>
+    </div>
+</div>
+
+</body>
+</html>

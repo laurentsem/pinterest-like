@@ -6,7 +6,7 @@
     margin-top: 50px;
     margin-bottom: 50px;
     box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(0,0,0,.6);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
     border-radius: 10px;
     justify-content: center;
 }
@@ -32,6 +32,7 @@
     outline: none;
     background: transparent;
 }
+
 .login-box .user-box label {
     padding: 10px 0;
     font-size: 16px;
@@ -87,7 +88,7 @@
     0% {
         left: -100%;
     }
-    50%,100% {
+    50%, 100% {
         left: 100%;
     }
 }
@@ -106,7 +107,7 @@
     0% {
         top: -100%;
     }
-    50%,100% {
+    50%, 100% {
         top: 100%;
     }
 }
@@ -125,7 +126,7 @@
     0% {
         right: -100%;
     }
-    50%,100% {
+    50%, 100% {
         right: 100%;
     }
 }
@@ -144,10 +145,11 @@
     0% {
         bottom: -100%;
     }
-    50%,100% {
+    50%, 100% {
         bottom: 100%;
     }
 }
-button#hidbutton.hidbutton{
+
+button#hidbutton.hidbutton {
     display: none !important;
 }
