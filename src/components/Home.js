@@ -22,6 +22,9 @@ class Home extends Component {
     render() {
         return (
         <div>
+            <ul>
+                {this.state.posts.map(post => <il>{post.allPosts}</il>)}
+            </ul>
             <div class="allbody">
                 {this.state.posts.map(post =>
                 <div className="child-page-listing">

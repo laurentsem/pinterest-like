@@ -1,7 +1,8 @@
 .allbody{
-  width: 400px!important;
+  width: 100%!important;
   display: inline-flex;
   margin: 5px !important;
+  flex-wrap: wrap;
 }
 
 img{
