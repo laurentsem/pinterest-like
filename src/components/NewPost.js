@@ -16,7 +16,8 @@ class NewPost extends Component {
     state = {
         title: '',
         description: '',
-        imageURL: ''
+        imageURL: '',
+        selectedImage: ''
     }
 
     titleOnChange = e => {
@@ -37,9 +38,10 @@ class NewPost extends Component {
         })
     }
 
-    uploadImageNameOnChange = e => {
+    uploadImageOnChange = e => {
+        console.log(e.target.files[0])
         this.setState({
-            imageURL: e.target.value
+            selectedImage: e.target.value
         })
     }
 
@@ -53,7 +55,7 @@ class NewPost extends Component {
             imageURL: this.state.imageURL
         };
 
-        axios.post("http://localhost:5000/posts", data, )
+        axios.post("http://localhost:5000/posts", data)
             .then(res =>
                 console.log(res))
             .catch(err =>
@@ -85,7 +87,7 @@ class NewPost extends Component {
         return (
         <div>
             <h2>Create new Post</h2>
-            <form onSubmit={this.handleSubmit}>
+            <form enctype="multipart/form-data" onSubmit={this.handleSubmit}>
                 <input type="text"
                        placeholder="Nom"
                        onChange={this.titleOnChange}
@@ -106,13 +108,13 @@ class NewPost extends Component {
 
                 <input type="file"
                        id="cloudinary" name="image"
-                       onChange={this.imageURLOnChange}
+                       onChange={this.uploadImageOnChange}
                        ref={this.fileInput}
                        required="required"
                 />
                 <input type="url"
                        placeholder="Lien URL de la photo" id="enterUrl" disabled="disabled"
-                       onChange={this.uploadImageNameOnChange}
+                       onChange={this.imageURLOnChange}
                 />
 
                 <img src={this.state.imageURL}/>

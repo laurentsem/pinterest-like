@@ -37,7 +37,7 @@ async function createOnePost(req, res) {
 }}
 
 async function onePostById(req, res) {
-    const result = await postService.onePostById();
+    const result = await postService.onePostById(req.params.id);
     res.json(result)
 }
 
