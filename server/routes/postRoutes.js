@@ -26,4 +26,4 @@ router.delete('/delPost/:id', deleteOnePostById);
 //Update One Post with ID
 router.post('/upPost/:id', updateOnePostById);
 
-module.exports = router
+module.exports = router;

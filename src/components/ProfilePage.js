@@ -4,13 +4,21 @@
 import React, {Component} from 'react';
 import "../assets/css/profile.css"
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
+import firebase from "firebase";
 
 class ProfilePage extends Component{
     constructor(props) {
         super(props);
-        this.state = {
-            value: ''
+
+        this.initialState = {
+            isLogin: false,
+            getName: '',
+            getProfilePic: '',
+            getId: '',
+            getToken: ''
         };
+
+        this.state = this.initialState;
 
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -24,6 +32,35 @@ class ProfilePage extends Component{
         alert('Un essai a été envoyé : ' + this.state.value);
         event.preventDefault();
     }
+
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged(async (user) => {
+            if (user) {
+                this.setState(() => ({
+                    isLogin: true,
+                    getName: user.displayName,
+                    getProfilePic: user.photoURL,
+                    getId: user.uid
+                }));
+            } else {
+                console.log("users not logged");
+            }
+        })
+    };
+
+    componentWillUnmount = () => {
+        this.setState(() => (this.initialState));
+    };
+
+    Logout = () => {
+        firebase.auth().signOut().then(() => {
+            console.log('Logged out');
+            this.setState(() => (this.initialState));
+        }).catch(function (err) {
+            console.log(err.message)
+        })
+    };
+
     render() {
         return (
             <html id="profile">
@@ -39,6 +76,19 @@ class ProfilePage extends Component{
                     </div>
                 </div>
             </CloudinaryContext>
+
+            <img src={this.state.getProfilePic} alt="imgProfile"/>
+
+            <div>
+                {this.state.isLogin === false ?
+                    <></>
+                    :
+                    <>
+                        <p>UID: {this.state.getId}</p>
+                        <button onClick={() => this.Logout()}>Logout</button>
+                    </>
+                }
+            </div>
             </html>
         )
     }

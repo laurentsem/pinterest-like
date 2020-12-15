@@ -12,7 +12,7 @@ function bufferToStream(buf) {
 
 async function createOnePost(req, res) {
     if(req.file) {
-        console.log('In file...')
+        console.log('In file...');
         const uploadStream = cloudinary.uploader.upload_stream({folder: "uploads"},
             async function (error, result) {
                 req.body.imageURL = result.public_id;
@@ -23,7 +23,7 @@ async function createOnePost(req, res) {
         fileStream.pipe(uploadStream);
     }
     else {
-    const upload = cloudinary.uploader.upload(req.body.imageURL, {folder: "uploads"},
+    await cloudinary.uploader.upload(req.body.imageURL, {folder: "uploads"},
         async function(err, result) {
             console.log("Link req.body before: " + req.body.imageURL);
             console.log("Link from Cloud: " + result.public_id);

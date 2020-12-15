@@ -16,12 +16,12 @@ async function deleteUserById(id) {
     return result
 }
 
-async function updateUserById(id, userData) {
-    const result = await db.collection('users').doc(id).set(userData, {merge: true});
+async function createUser(userData) {
+    const result = await db.collection('users').doc().set(userData);
     return result
 
 }
 
 exports.getUserById = getUserById;
 exports.deleteUserById = deleteUserById;
-exports.updateUserById = updateUserById;
+exports.createUser = createUser;

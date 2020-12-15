@@ -2,54 +2,53 @@
 // Page d'inscription
 
 import "../assets/css/singin.scss"
-
 import React, {Component} from 'react';
+import firebase from 'firebase/app';
+
 
 class Signup extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: ''
-        };
 
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+    state = {
+        email: '',
+        password: '',
+        error: null,
+    };
 
-    handleChange(event) {
-        this.setState({value: event.target.value});
-    }
+    handleInputChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value });
+    };
 
-    handleSubmit(event) {
-        alert('Un essai a été envoyé : ' + this.state.value);
+    handleSubmit = (event) => {
         event.preventDefault();
-    }
-
-    retournLaVal() {
-        return (this.state.value);
-    }
+        const { email, password } = this.state;
+        firebase
+            .auth()
+            .createUserWithEmailAndPassword(email, password)
+            .then((user) => {
+                this.props.history.push('/');
+            })
+            .catch((error) => {
+                this.setState({ error: error });
+            });
+    };
 
     render() {
+        const { email, password, error } = this.state;
         return (
-            <form>
-                <div class="segment">
+            <div>
+                <div className="segment">
                     <h2>Join the club</h2>
                 </div>
-                <div>
-                    <label>
-                        <input type="text" placeholder="Pseudo" color="black" value={this.state.value}
-                               onChange={this.handleChange}/>
-                        <input type="email" placeholder="Email"/>
-                        <input type="password" placeholder="Mot de passe"/>
-                        <input type="password" placeholder="Confirmer le mot de passe"/>
-                        <button className="red" type="button"><i className="icon ion-md-lock"/> Log in</button>
-                    </label>
-                </div>
-                <div className="info">
-                    <span onChange={this.handleChange}>Pseudo: {this.state.value}</span>
-                </div>
-            </form>
-        )
+                {error ? (
+                    <>{error.message}</>
+                ) : null}
+                <form onSubmit={this.handleSubmit}>
+                    <input type="text" name="email" placeholder="Email" value={email} onChange={this.handleInputChange} />
+                    <input type="password" name="password" placeholder="Password" value={password} onChange={this.handleInputChange}/>
+                    <button type="submit">Submit</button>
+                </form>
+            </div>
+        );
     }
 }
 

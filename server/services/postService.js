@@ -20,7 +20,7 @@ async function onePostById(id) {
 // TODO: get avec la date la plus récente
 async function getRecentPosts() {
     const recentPosts = [];
-    const result = await db.collection('posts').orderBy('date').get();
+    const result = await db.collection('posts').get();
     result.forEach((doc) => {
         recentPosts.push(doc.data())
     });
