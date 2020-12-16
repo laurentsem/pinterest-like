@@ -7,14 +7,16 @@ import axios from 'axios';
 import FormData from 'form-data'
 const db = firebase.firestore();
 
-
 class NewPost extends Component {
 
     state = {
         title: '',
         description: '',
+        tag: '',
         imageURL: '',
-        imageFile: ''
+        imageFile: '',
+        userId: '',
+        date: ''
     };
 
     titleOnChange = e => {
@@ -26,6 +28,12 @@ class NewPost extends Component {
     descriptionOnChange = e => {
         this.setState({
             description: e.target.value
+        })
+    };
+
+    tagOnChange = e => {
+        this.setState({
+            tag: e.target.value
         })
     };
 
@@ -46,18 +54,24 @@ class NewPost extends Component {
         e.preventDefault();
 
         const uploadData = new FormData();
-        uploadData.append('title', this.state.title)
-        uploadData.append('description', this.state.description)
-        uploadData.append('image', this.state.imageFile)
+        uploadData.append('title', this.state.title);
+        uploadData.append('description', this.state.description);
+        uploadData.append('tag', this.state.tag);
+        uploadData.append('image', this.state.imageFile);
+        uploadData.append('userId', this.state.userId);
+        uploadData.append('date', this.state.date);
         // append for userID
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
-        }
+        };
 
         const fromURLData = {
             title : this.state.title,
             description: this.state.description,
-            imageURL: this.state.imageURL
+            tag: this.state.tag,
+            imageURL: this.state.imageURL,
+            userId: this.state.userId,
+            date: this.state.date
             // add userID
         };
 
@@ -96,6 +110,17 @@ class NewPost extends Component {
         document.getElementById("enterUrl").required = true;
     }
 
+    componentDidMount = () => {
+        firebase.auth().onAuthStateChanged((user) => {
+            if (user) {
+                this.setState(() => ({
+                    userId: user.uid
+                }));
+            } else {
+                console.log("users not logged");
+            }
+        })
+    };
 
      render() {
         return (
@@ -109,6 +134,10 @@ class NewPost extends Component {
                 <input type="text"
                        placeholder="Description"
                        onChange={this.descriptionOnChange}
+               required />
+                <input type="text"
+                       placeholder="Tag"
+                       onChange={this.tagOnChange}
                required />
 
                 <p> Upload image from : </p>
@@ -131,8 +160,6 @@ class NewPost extends Component {
                        onChange={this.imageURLOnChange}
                        disabled="disabled"
                 />
-
-                {/* <img src={this.state.imageURL}/> */}
 
                 <button type="submit">Submit</button>
             </form>

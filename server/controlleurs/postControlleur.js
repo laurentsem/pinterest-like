@@ -1,7 +1,7 @@
 const postService = require('../services/postService');
 const {Duplex} = require('stream');
 const { cloudinary } = require('../cloudinary');
-
+const admin = require('firebase-admin');
 
 function bufferToStream(buf) {
     let tmp = new Duplex();
@@ -16,6 +16,7 @@ async function createOnePost(req, res) {
         const uploadStream = cloudinary.uploader.upload_stream({folder: "uploads"},
             async function (error, result) {
                 req.body.imageURL = result.public_id;
+                req.body.date = admin.firestore.Timestamp.fromDate(new Date());
                 const createPost = await postService.createOnePost(req.body);
                 res.json(createPost);
             });
@@ -28,11 +29,12 @@ async function createOnePost(req, res) {
             console.log("Link req.body before: " + req.body.imageURL);
             console.log("Link from Cloud: " + result.public_id);
             req.body.imageURL = result.public_id;
+            req.body.date = admin.firestore.Timestamp.fromDate(req.body.date);
             console.log("Link after req.body change: " + req.body.imageURL);
             const createPost = await postService.createOnePost(req.body);
             res.json(createPost)
-    })
-    //const result = await postService.createOnePost(req.body);
+    });
+        //const result = await postService.createOnePost(req.body);
     //res.json(result)
 }}
 
