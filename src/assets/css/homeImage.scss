@@ -71,8 +71,8 @@
 
 img {
   border-radius: 20px;
-  justify-content: space-around;
-  margin: 5px;
+  width: 400px;
+  display: inline-flex;
   padding: 5px;
 }
 
@@ -102,14 +102,6 @@ img {
   justify-content: space-around;
 }
 
-
-/* for touch screen devices */
-@media (hover: none) {
-  .location-title {
-    opacity: 1;
-  }
-  .location-image image {
-    filter: blur(2px);
   }
 }
 

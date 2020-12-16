@@ -1,12 +1,45 @@
 const postService = require('../services/postService');
+const {Duplex} = require('stream');
+const { cloudinary } = require('../cloudinary');
+const admin = require('firebase-admin');
 
-async function createOnePost(req, res) {
-    const result = await postService.createOnePost(req.body);
-    res.json(result)
+function bufferToStream(buf) {
+    let tmp = new Duplex();
+    tmp.push(buf);
+    tmp.push(null);
+    return tmp;
 }
 
+async function createOnePost(req, res) {
+    if(req.file) {
+        console.log('In file...');
+        const uploadStream = cloudinary.uploader.upload_stream({folder: "uploads"},
+            async function (error, result) {
+                req.body.imageURL = result.public_id;
+                req.body.date = admin.firestore.Timestamp.fromDate(new Date());
+                const createPost = await postService.createOnePost(req.body);
+                res.json(createPost);
+            });
+        const fileStream = bufferToStream(req.file.buffer);
+        fileStream.pipe(uploadStream);
+    }
+    else {
+    await cloudinary.uploader.upload(req.body.imageURL, {folder: "uploads"},
+        async function(err, result) {
+            console.log("Link req.body before: " + req.body.imageURL);
+            console.log("Link from Cloud: " + result.public_id);
+            req.body.imageURL = result.public_id;
+            req.body.date = admin.firestore.Timestamp.fromDate(req.body.date);
+            console.log("Link after req.body change: " + req.body.imageURL);
+            const createPost = await postService.createOnePost(req.body);
+            res.json(createPost)
+    });
+        //const result = await postService.createOnePost(req.body);
+    //res.json(result)
+}}
+
 async function onePostById(req, res) {
-    const result = await postService.onePostById();
+    const result = await postService.onePostById(req.params.id);
     res.json(result)
 }
 

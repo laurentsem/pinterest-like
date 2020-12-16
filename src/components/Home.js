@@ -6,7 +6,6 @@ import axios from 'axios';
 import $ from 'jquery';
 import {Image, CloudinaryContext, Transformation} from 'cloudinary-react';
 import "../assets/css/homeImage.scss"
-import "../assets/jsCSS/jsCSS"
 
 
 class Home extends Component {
@@ -173,6 +172,7 @@ class Home extends Component {
                 </article>
 
             </div>
+        </div>
         )
     }
 }

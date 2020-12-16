@@ -1,9 +1,8 @@
-const { verifyUserToken } = require('../services/auth')
-
+const { verifyUserToken } = require('../services/auth');
 
 async function middlewareVerifyAuth(req, res, next) {
-    const token = req.query.token
-    const decodedToken = await verifyUserToken(token)
+    const token = req.query.token;
+    const decodedToken = await verifyUserToken(token);
     if(!decodedToken) {
         return res.status(401).end()
     }
