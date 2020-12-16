@@ -4,14 +4,17 @@
 import React, { Component } from 'react';
 import firebase from 'firebase/app';
 import axios from 'axios';
+import FormData from 'form-data'
 const db = firebase.firestore();
 
 
 class NewPost extends Component {
+
     state = {
         title: '',
         description: '',
-        imageURL: ''
+        imageURL: '',
+        imageFile: ''
     };
 
     titleOnChange = e => {
@@ -34,7 +37,7 @@ class NewPost extends Component {
 
     uploadImageOnChange = e => {
         this.setState({
-            selectedImage: e.target.value
+            imageFile: e.target.files[0]
         })
     };
 
@@ -42,17 +45,35 @@ class NewPost extends Component {
     handleSubmit = e => {
         e.preventDefault();
 
-        const data = {
-            title: this.state.title,
+        const uploadData = new FormData();
+        uploadData.append('title', this.state.title)
+        uploadData.append('description', this.state.description)
+        uploadData.append('image', this.state.imageFile)
+        // append for userID
+        const config = {
+            headers: { 'content-type': 'multipart/form-data' }
+        }
+
+        const fromURLData = {
+            title : this.state.title,
             description: this.state.description,
             imageURL: this.state.imageURL
+            // add userID
         };
 
-        axios.post("http://localhost:5000/posts", data)
-            .then(res =>
-                console.log(res))
-            .catch(err =>
-                console.log(err))
+        if(this.state.imageURL === '') {
+            axios.post("http://localhost:5000/posts", uploadData, config)
+                .then(res =>
+                    console.log(res))
+                .catch(err =>
+                    console.log(err))
+        } else if (this.state.imageFile === '') {
+            axios.post("http://localhost:5000/posts", fromURLData)
+                .then(res =>
+                    console.log(res))
+                .catch(err =>
+                    console.log(err))
+        }
     };
 
     onSelectChange = () => {
@@ -80,7 +101,7 @@ class NewPost extends Component {
         return (
         <div>
             <h2>Create new Post</h2>
-            <form enctype="multipart/form-data" onSubmit={this.handleSubmit}>
+            <form encType="multipart/form-data" onSubmit={this.handleSubmit}>
                 <input type="text"
                        placeholder="Nom"
                        onChange={this.titleOnChange}
