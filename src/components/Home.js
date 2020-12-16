@@ -23,7 +23,6 @@ class Home extends Component {
         return (
         <div>
             <ul>
-                {this.state.posts.map(post => <il>{post.allPosts}</il>)}
             </ul>
             <div class="allbody">
                 {this.state.posts.map(post =>
@@ -37,6 +36,7 @@ class Home extends Component {
                                             <div className="col-md-8 col-sm-12 co-xs-12 gal-item">
                                                 <div className="box">
                                                     <Image publicId={post.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
+                                                    <il>{post.title}</il>
                                                 </div>
                                             </div>
                                         </div>
