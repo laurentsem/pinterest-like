@@ -29,6 +29,18 @@ class ProfilePage extends Component {
         this.setState({value: event.target.value});
     }
 
+    getNameChange = e => {
+        this.setState({
+            getName: e.target.value
+        });
+    };
+
+    getProfileChange = e => {
+        this.setState({
+            getProfilePic: e.target.value
+        });
+    };
+
     handleSubmit(event) {
         alert('Un essai a été envoyé : ' + this.state.value);
         event.preventDefault();
@@ -62,30 +74,51 @@ class ProfilePage extends Component {
         })
     };
 
+    submitUpProfile = (event) => {
+        event.preventDefault();
+        let user = firebase.auth().currentUser;
+        user.updateProfile({
+            displayName: this.state.getName,
+            photoURL: this.state.getProfilePic
+        }).then(function() {
+            console.log('yes !')
+        }).catch(function(error) {
+            console.log(error)
+        });
+    };
+
     render() {
+        let user = firebase.auth().currentUser;
         return (
             <html id="profile">
             <div>
                 <h2>Profile Page</h2>
             </div>
-            <CloudinaryContext cloudName="dp2k3zmzy">
-                <div className="container gal-container profile">
-                    <div className="col-md-8 col-sm-12 co-xs-12 gal-item">
-                        <div className="box">
-                            <Image publicId="test"><Transformation gravity="face" radius="max" crop="crop"/></Image>
-                        </div>
-                    </div>
-                </div>
-            </CloudinaryContext>
-
-            <img src={this.state.getProfilePic} alt="imgProfile"/>
+            {this.state.getProfilePic === '' ?
+                <></>
+                :
+                <>
+                    <img src={user.photoURL} alt="imgProfile"/>
+                </>
+            }
 
             <div>
                 {this.state.isLogin === false ?
                     <></>
                     :
                     <>
-                        <p>UID: {this.state.getId}</p>
+                        <form onSubmit={this.submitUpProfile}>
+                            <input type="text"
+                                   placeholder="Créer/Modifier son nom"
+                                   onChange={this.getNameChange}
+                            />
+                            <input type="url"
+                                   placeholder="Ajouter/Modifier ça photo de profile"
+                                   onChange={this.getProfileChange}
+                            />
+                            <button type="submit">Submit</button>
+                        </form>
+                        <p>NAME: {user.displayName}</p>
                         <button onClick={() => this.Logout()}>Logout</button>
                     </>
                 }

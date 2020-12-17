@@ -3,7 +3,6 @@
 import "../assets/css/login.css"
 
 import React, {Component} from 'react';
-import LoginWithGoogle from "./LoginWithGoogle";
 import firebase, {googleProvider} from "../server/firebase";
 
 class Login extends Component {
@@ -24,7 +23,7 @@ class Login extends Component {
             .auth()
             .signInWithEmailAndPassword(email, password)
             .then((user) => {
-                this.props.history.push('/');
+                this.props.history.push('/home');
             })
             .catch((error) => {
                 this.setState({ error: error });

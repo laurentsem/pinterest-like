@@ -32,7 +32,7 @@ class Home extends Component {
                     <div className="grid-container">
                         <article className="location-listing">
                             <div className="location-image">
-                                <Link to={/Onepost/${postId}}></Link>
+                                {/*<Link to={/Onepost/${postId}}/>*/}
                                     <CloudinaryContext cloudName="dp2k3zmzy">
                                         <div className="container gal-container">
                                             <div className="col-md-8 col-sm-12 co-xs-12 gal-item">

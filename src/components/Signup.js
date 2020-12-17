@@ -25,7 +25,7 @@ class Signup extends Component {
             .auth()
             .createUserWithEmailAndPassword(email, password)
             .then((user) => {
-                this.props.history.push('/');
+                this.props.history.push('/home');
             })
             .catch((error) => {
                 this.setState({ error: error });
