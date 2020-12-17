@@ -49,7 +49,7 @@ async function recentPosts(req, res) {
 }
 
 async function deleteOnePostById(req, res) {
-    const result = await postService.deleteOnePostById();
+    const result = await postService.deleteOnePostById(req.params.id);
     res.json(result)
 }
 

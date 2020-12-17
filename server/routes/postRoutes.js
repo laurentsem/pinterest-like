@@ -21,9 +21,9 @@ router.get('/posts', recentPosts);
 router.get('/posts/:id', onePostById);
 
 // Delete One Post with ID
-router.delete('/delPost/:id', deleteOnePostById);
+router.delete('/posts/:id', deleteOnePostById);
 
 //Update One Post with ID
-router.post('/upPost/:id', updateOnePostById);
+router.post('/posts/:id', updateOnePostById);
 
 module.exports = router;
