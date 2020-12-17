@@ -12,7 +12,6 @@ class Home extends Component {
         super(props)
         this.initialState = {
             posts: [],
-            postWithTag: [],
             getId: ''
         }
 

@@ -10,6 +10,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import ProfilePage from './components/ProfilePage';
 import NewPost from './components/NewPost';
+import Playlist from './components/Playlist'
 import Axios from "axios";
 
 
@@ -25,6 +26,7 @@ function App() {
                     <Route path="/login" component={Login}/>
                     <Route path="/profile" component={ProfilePage}/>
                     <Route path="/newPost" component={NewPost}/>
+                    <Route path="/playlist" component={Playlist}/>
                 </Switch>
             </Router>
         </div>

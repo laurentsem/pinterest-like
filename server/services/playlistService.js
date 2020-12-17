@@ -9,6 +9,18 @@ async function getPlaylist(id) {
     return result
 }
 
+async function getPlaylists() {
+    const playlists = [];
+    await db.collection('playlist').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            const currentId = doc.id
+            const appObj = {...doc.data(), ['playlistId']: currentId}
+            playlists.push(appObj)
+        })
+    })
+    return playlists
+}
+
 async function deletePlaylist(id) {
     const result = await db.collection('playlist').doc(id).delete();
     return result
@@ -23,5 +35,6 @@ async function updatePlaylist(id) {
 
 
 exports.getPlaylist = getPlaylist;
+exports.getPlaylists = getPlaylists
 exports.deletePlaylist = deletePlaylist;
 exports.updatePlaylist = updatePlaylist;

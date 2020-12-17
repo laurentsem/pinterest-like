@@ -5,6 +5,11 @@ async function getPlaylist(req, res) {
     res.json(result)
 }
 
+async function getPlaylists(req, res) {
+    const result = await playlistService.getPlaylists();
+    res.json(result)
+}
+
 async function deletePlaylist(req, res) {
     const result = await playlistService.deletePlaylist(req.params.id);
     res.json(result)
@@ -16,5 +21,6 @@ async function updatePlaylist(req, res) {
 }
 
 exports.getPlaylist = getPlaylist;
+exports.getPlaylists = getPlaylists;
 exports.deletePlaylist = deletePlaylist;
 exports.updatePlaylist = updatePlaylist;
