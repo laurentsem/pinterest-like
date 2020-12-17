@@ -44,7 +44,7 @@ async function onePostById(req, res) {
 }
 
 async function recentPosts(req, res) {
-    const result = await postService. getRecentPosts();
+    const result = await postService.getRecentPosts();
     res.json(result)
 }
 

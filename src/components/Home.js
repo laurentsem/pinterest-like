@@ -45,8 +45,6 @@ class Home extends Component {
     render() {
         return (
         <div>
-            <ul>
-            </ul>
             <div className="allbody">
                 <h2> Recents posts </h2>
                 {this.state.posts.map(post =>

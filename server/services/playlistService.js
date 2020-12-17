@@ -5,9 +5,13 @@ const { admin } = require('../firebase');
 const db = admin.firestore();
 
 async function getPlaylist(id) {
-    const result = await db.collection('playlist').doc(id).get();
-    return result
-}
+    const playlist = []
+    const result = await db.collection('playlist').doc(id).get()
+    const appObj = {...result.data(), ['playlistId']: id}
+    playlist.push(appObj)
+    return playlist
+    }
+
 
 async function getPlaylists() {
     const playlists = [];

@@ -2,15 +2,15 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import firebase from 'firebase';
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
-import {Link} from "react-router-dom";
 
-class PlaylistDetails extends Component {
+class Playlist extends Component {
+
     constructor(props) {
         super(props);
 
         this.initialState = {
             playlist: [],
-            isLogin: false,
+            posts: []
         };
 
         this.state = this.initialState;
@@ -28,33 +28,40 @@ class PlaylistDetails extends Component {
             }
         })
 
-
-        axios.get('http://localhost:5000/playlist/')
+        const id = this.props.match.params.id
+        console.log(id)
+        axios.get(`http://localhost:5000/playlist/${id}`)
             .then(res => {
                 const playlist = res.data;
-                console.log(playlist);
                 this.setState({playlist})
             })
+    }
+
+    postItem = (table) => {
+       table.map(e => this.state.posts.push(e))
     }
 
     render() {
         return (
             <div>
-                <h2> Discover playlist </h2>
-                <p> All playlists publics</p>
-
-                {this.state.playlist.map(playlist =>
+                <div>
+                {this.state.playlist.map(e =>
                     <div>
-                    <h4>{playlist.name}</h4>
-                    <p>{playlist.playlistId}</p>
-                        <Link to={`playlistDetails/${playlist.playlistId}`}>Détails de la playlist</Link>
+                        {console.log("All post from playlist:" + e.posts)}
+                        {this.postItem(e.posts)}
+                    <h2>{e.name}</h2>
+                        {this.state.posts.map(e =>
+                            <CloudinaryContext cloudName="dp2k3zmzy">
+                                <Image publicId={e} ><Transformation gravity="east" crop="fill" /></Image>
+                            </CloudinaryContext>
+                        )}
 
                     </div>
                 )}
-
+            </div>
             </div>
         );
     }
 }
 
-export default PlaylistDetails;
+export default Playlist;
