@@ -12,6 +12,7 @@ class Home extends Component {
         super(props)
         this.initialState = {
             posts: [],
+            postWithTag: [],
             getId: ''
         }
 
@@ -36,9 +37,9 @@ class Home extends Component {
     }
 
     DeletePost = (id) => {
-        axios.delete(`http://localhost:5000/delPost/${id})`)
+        axios.delete(`http://localhost:5000/posts/${id}`)
             .then(res => {
-                console.log("Delete post")
+                console.log(res)
             })
     }
 
@@ -48,6 +49,7 @@ class Home extends Component {
             <ul>
             </ul>
             <div className="allbody">
+                <h2> Recents posts </h2>
                 {this.state.posts.map(post =>
                 <div className="child-page-listing">
                     <div className="grid-container">
@@ -59,13 +61,17 @@ class Home extends Component {
                                             <div className="col-md-8 col-sm-12 co-xs-12 gal-item">
                                                 <div className="box">
                                                     <Image publicId={post.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
+                                                    <ul>
                                                     <li>{post.title}</li>
-                                                    {this.state.getId === post.userId ?
+                                                    <li>{post.tag}</li>
+                                                    <li>{post.docId}</li>
+
+                                                    <li>{this.state.getId === post.userId ?
                                                         <><button onClick={() => this.DeletePost(post.docId)}>Delete post</button></>
                                                         :
                                                         <>
                                                         </>
-                                                    }
+                                                    }</li></ul>
                                                 </div>
                                             </div>
                                         </div>
@@ -76,6 +82,7 @@ class Home extends Component {
                 </div>
             )}
             </div>
+
         </div>
         )
     }

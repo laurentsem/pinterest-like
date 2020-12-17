@@ -39,8 +39,16 @@ async function updateOnePostById(id, postData) {
 
 }
 
+// Posts with tags
+async function getPostsWithTag(tag) {
+    const result = await db.collection('posts').doc(tag).get();
+    return result
+}
+
 exports.createOnePost = createOnePost;
 exports.onePostById = onePostById;
 exports.getRecentPosts = getRecentPosts;
 exports.deleteOnePostById = deleteOnePostById;
 exports.updateOnePostById = updateOnePostById;
+
+exports.getPostsWithTag = getPostsWithTag;

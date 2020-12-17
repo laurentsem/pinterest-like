@@ -13,3 +13,5 @@ router.get('/commentsOfUser/:id', allCommentsByOneUser);
 router.get('/delComments/:id', deleteOneCommentById);
 
 router.post('/upComments/:id', updateOneCommentById);
+
+module.exports = router;

@@ -14,16 +14,6 @@ import Axios from "axios";
 
 
 function App() {
-    Axios({
-        method: "GET",
-        url: 'http://localhost:5000',
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => {
-        console.log(res.data.message)
-    })
-
     return (
         <body>
         <div className="App">
@@ -37,7 +27,6 @@ function App() {
                     <Route path="/newPost" component={NewPost}/>
                 </Switch>
             </Router>
-            <Footer/>
         </div>
         </body>
     );

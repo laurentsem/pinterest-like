@@ -58,8 +58,18 @@ async function updateOnePostById(req, res) {
     res.json(result)
 }
 
+
+// Posts with tags
+
+async function postsByTag(req, res) {
+    const result = await postService.getPostsWithTag(req.params.tag)
+    res.json(result)
+}
+
 exports.createOnePost = createOnePost;
 exports.onePostById = onePostById;
 exports.recentPosts = recentPosts;
 exports.deleteOnePostById = deleteOnePostById;
 exports.updateOnePostById = updateOnePostById;
+
+exports.postsByTag = postsByTag;
