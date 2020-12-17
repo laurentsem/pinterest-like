@@ -5,7 +5,6 @@ const { admin } = require('../firebase');
 const db = admin.firestore();
 
 async function postOneComment(commentData) {
-    //const id = uuidv4();
     const result = await db.collection('comments').doc().set(commentData);
     return result
 }

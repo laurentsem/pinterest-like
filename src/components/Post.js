@@ -12,6 +12,6 @@ class Post extends Component {
             description: '',
             photoUrl: ''
         }
-    }
+
 
 }
