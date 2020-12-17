@@ -18,10 +18,13 @@ async function onePostById(id) {
 
 async function getRecentPosts() {
     const recentPosts = [];
-    const result = await db.collection('posts').get();
-    result.forEach((doc) => {
-        recentPosts.push(doc.data())
-    });
+    await db.collection('posts').get().then(snapshot => {
+        snapshot.docs.forEach(doc => {
+            const currentId = doc.id
+            const appObj = {...doc.data(), ['docId']: currentId}
+            recentPosts.push(appObj)
+        })
+        })
     return recentPosts
 }
 

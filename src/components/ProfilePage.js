@@ -86,6 +86,7 @@ class ProfilePage extends Component {
                     :
                     <>
                         <p>UID: {this.state.getId}</p>
+                        <p>Name: {this.state.getName}</p>
                         <button onClick={() => this.Logout()}>Logout</button>
                     </>
                 }
