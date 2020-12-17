@@ -60,3 +60,12 @@ h1 {
     color: #ff0100;
 }
 
+div.child-page-listing{
+    display: inline-block;
+    padding: 1px;
+}
+li#li{
+    text-decoration: none;
+    list-style: none;
+    color: #7c6161;
+}
