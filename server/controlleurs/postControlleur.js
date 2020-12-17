@@ -43,8 +43,18 @@ async function onePostById(req, res) {
     res.json(result)
 }
 
+async function getPostsByOneTag(req, res) {
+    const result = await postService.getPostsByOneTag(req.params.tag);
+    res.json(result)
+}
+
 async function recentPosts(req, res) {
     const result = await postService.getRecentPosts();
+    res.json(result)
+}
+
+async function getAllTags(req, res) {
+    const result = await postService.getAllTags();
     res.json(result)
 }
 
@@ -63,3 +73,5 @@ exports.onePostById = onePostById;
 exports.recentPosts = recentPosts;
 exports.deleteOnePostById = deleteOnePostById;
 exports.updateOnePostById = updateOnePostById;
+exports.getPostsByOneTag = getPostsByOneTag;
+exports.getAllTags = getAllTags;

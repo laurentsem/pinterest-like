@@ -1,5 +1,5 @@
 const { admin } = require('firebase');
-const { createOnePost, onePostById, getRecentPosts, updateOnePostById, deleteOnePostById } = require('./services/postService');
+const { createOnePost, onePostById, getRecentPosts, updateOnePostById, deleteOnePostById, getPostsByOneTag, getAllTags } = require('./services/postService');
 const { createOneComment } = require('./services/commentsService');
 const {createUser} = require('./services/userService');
 
@@ -18,6 +18,11 @@ async function tests() {
     //const result = await updateOneCommentById('KcNajwPaxiiJlo02st1z', {userId: "2"});
 
     //const result = await createUser({name: 'hugo'});
+
+    //const result = await getPostsByOneTag('Paris');
+
+    //const result = await getAllTags();
+
     console.log(result);
 }
 
