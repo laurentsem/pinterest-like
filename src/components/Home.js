@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import {Image, CloudinaryContext, Transformation} from 'cloudinary-react';
 import "../assets/css/homeImage.scss";
+import "../assets/css/StyleSelect.scss";
 import firebase from "firebase";
 
 class Home extends Component {
