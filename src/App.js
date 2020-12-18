@@ -29,7 +29,6 @@ function App() {
                     <Route exact path="/tag/:tag" component={TagDetails}/>
                 </Switch>
             </Router>
-            <Footer/>
         </div>
         </body>
     );

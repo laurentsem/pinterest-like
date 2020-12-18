@@ -38,20 +38,30 @@ class TagDetails extends Component {
 
     render() {
         return (
-            <div>
-                <div>
-                    {this.state.posts.map(e =>
-                        <div>
-                            <h2>{e.title}</h2>
+        <div className="allbody">
+            {this.state.posts.map(e =>
+                <div className="child-page-listing">
+                    <article className="location-listing">
+                        <div className="location-image">
                             <CloudinaryContext cloudName="dp2k3zmzy">
-                                <Image publicId={e.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
+                                <div className="box">
+                                    <Image publicId={e.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
+                                    <li id="li">{e.title}</li>
+                                    {this.state.getId === e.userId ?
+                                        <><button onClick={() => this.DeletePost(e.docId)}>Delete post</button></>
+                                        :
+                                        <>
+                                        </>
+                                    }
+                                </div>
                             </CloudinaryContext>
                             <p>Description: {e.description}</p>
                             <p>Tag : {e.tag}</p>
                         </div>
-                    )}
+                    </article>
                 </div>
-            </div>
+            )};
+        </div>
         );
     }
 }
