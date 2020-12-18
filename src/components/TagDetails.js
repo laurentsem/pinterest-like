@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import firebase from 'firebase';
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
+import {Link} from "react-router-dom";
 
 class TagDetails extends Component {
 
@@ -28,13 +29,15 @@ class TagDetails extends Component {
         });
 
         const tag = this.props.match.params.tag;
-        console.log("Tag in URL" + tag);
         axios.get(`http://localhost:5000/tag/${tag}`)
             .then(res => {
                 const posts = res.data;
                 this.setState({posts})
             })
+
+
     };
+
 
     render() {
         return (
@@ -47,16 +50,16 @@ class TagDetails extends Component {
                                 <div className="box">
                                     <Image publicId={e.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
                                     <li id="li">{e.title}</li>
-                                    {this.state.getId === e.userId ?
-                                        <><button onClick={() => this.DeletePost(e.docId)}>Delete post</button></>
-                                        :
-                                        <>
-                                        </>
-                                    }
                                 </div>
                             </CloudinaryContext>
-                            <p>Description: {e.description}</p>
-                            <p>Tag : {e.tag}</p>
+                            <p>{e.description}</p>
+                            <Link to={`tag/${e.tag}`}>#{e.tag}</Link> <br/><br/>
+                            {this.state.getId === e.creatorId ?
+                                <><button onClick={() => this.DeletePost(e.docId)}>Delete post</button></>
+                                :
+                                <>
+                                </>
+                            }
                         </div>
                     </article>
                 </div>

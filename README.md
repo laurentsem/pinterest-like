@@ -5,14 +5,14 @@ Pinterest-like app for Web Project week at Coding Factory.
 
 ```bash
 # Install all dependencies
-$ npm install
-
-# Start Condinterest
-$ npm start
+$ npm install 
 OR
+$ yarn install
+
+# Start server
+$ cd server
+$ npm start
+
+# Start front
 $ yarn start
 ```
-
-## Technologies
-* React.js 
-* Bootstrap

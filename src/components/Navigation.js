@@ -72,16 +72,20 @@ class Navigation extends Component {
                   :
                   <>
                     <li className="menu__group">
+                      <a className="menu__link r-link text-underlined"><Link to={route.newPost}>Publier</Link>
+                      </a>
+                    </li>
+                    <li className="menu__group">
+                      <a className="menu__link r-link text-underlined"><Link to={route.playlist}>Mes Tableaux</Link>
+                      </a>
+                    </li>
+                    <li className="menu__group">
+                      <a className="menu__link r-link text-underlined"><Link to={route.profile}>Mon Profil</Link>
+                      </a>
+                    </li>
+                    <li className="menu__group">
                       <a className="menu__link r-link text-underlined">
                         <Link onClick={this.Logout}>Logout</Link>
-                      </a>
-                    </li>
-                    <li className="menu__group">
-                      <a className="menu__link r-link text-underlined"><Link to={route.profile}>Profile</Link>
-                      </a>
-                    </li>
-                    <li className="menu__group">
-                      <a className="menu__link r-link text-underlined"><Link to={route.newPost}>Publier</Link>
                       </a>
                     </li>
                   </>

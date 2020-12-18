@@ -11,6 +11,7 @@ class PlaylistDetails extends Component {
         this.initialState = {
             playlist: [],
             isLogin: false,
+            userId: ''
         };
 
         this.state = this.initialState;
@@ -48,13 +49,12 @@ class PlaylistDetails extends Component {
     render() {
         return (
             <div>
-                <h2> My playlist </h2>
+                <h2> Mes tableaux </h2>
 
                 {this.state.playlist.map(playlist =>
                     <div>
                     <h3>{playlist.name}</h3>
-                    <p>{playlist.playlistId}</p>
-                        <Link to={`playlistDetails/${playlist.playlistId}`}>Détails de la playlist</Link>
+                        <button><Link to={`playlistDetails/${playlist.playlistId}`}>Détails de la playlist</Link></button>
                         <br/>
                         <button onClick={() => this.DeletePlaylist(playlist.playlistId)}> Supprimer la playlist </button>
                     </div>

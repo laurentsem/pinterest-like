@@ -18,7 +18,6 @@ class Login extends Component {
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log('In submit');
         const { email, password } = this.state;
         firebase
             .auth()

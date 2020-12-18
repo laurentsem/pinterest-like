@@ -109,17 +109,15 @@ class ProfilePage extends Component {
                     <>
                         <form onSubmit={this.submitUpProfile}>
                             <input type="text"
-                                   placeholder="Créer/Modifier son nom"
+                                   placeholder={this.state.getName}
                                    onChange={this.getNameChange}
                             />
                             <input type="url"
-                                   placeholder="Ajouter/Modifier ça photo de profile"
+                                   placeholder={this.state.getProfilePic}
                                    onChange={this.getProfileChange}
                             />
                             <button type="submit">Submit</button>
                         </form>
-                        <p>NAME: {user.displayName}</p>
-                        <button onClick={() => this.Logout()}>Logout</button>
                     </>
                 }
             </div>

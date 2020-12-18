@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import firebase from 'firebase';
 import {CloudinaryContext, Image, Transformation} from "cloudinary-react";
+import {Link} from "react-router-dom";
 
 class PostDetails extends Component {
 
@@ -10,7 +11,7 @@ class PostDetails extends Component {
 
         this.initialState = {
             post: [],
-            getId: ''
+            userId: ''
         };
 
         this.state = this.initialState;
@@ -56,10 +57,17 @@ class PostDetails extends Component {
                                 <CloudinaryContext cloudName="dp2k3zmzy">
                                     <Image publicId={e.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
                                 </CloudinaryContext>
-                            <p>Description: {e.description}</p>
-                            <p>Tag : {e.tag}</p>
+                            <p>{e.description}</p>
+                            <p> <Link to={`tag/${e.tag}`}>#{e.tag}</Link></p>
 
-                            <button onclick={() => this.DeletePost}> Supprimer </button>
+
+                            {this.state.userId === e.userId ?
+                                <>
+                                    <button onClick={() => this.DeletePost}> Supprimer</button></>
+                                :
+                                <>
+                                </>
+                            }
                         </div>
                     )}
                 </div>
