@@ -14,7 +14,7 @@ class Home extends Component {
         this.initialState = {
             posts: [],
             getId: '',
-            playlists: []
+            playlists: [],
             tags: [],
             tagPost: []
         };
@@ -83,20 +83,14 @@ class Home extends Component {
                                                 <div className="box">
                                                     <Image publicId={post.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
                                                     <ul>
-                                                    <li>{post.title}</li>
-                                                    <li>{post.tag}</li>
-                                                    <li>{post.docId}</li>
-                                                        <select>
-
-                                                        </select>
-                                                        <button>Ajouter à la playlist</button>
-
-                                                    <li>{this.state.getId === post.userId ?
+                                                    <li id="li">{post.title}</li>
+                                                    <li id="li">{post.tag}</li>
+                                                    {this.state.getId === post.userId ?
                                                         <><button onClick={() => this.DeletePost(post.docId)}>Delete post</button></>
                                                         :
                                                         <>
                                                         </>
-                                                    }</li></ul>
+                                                    }</ul>
                                                 </div>
                                     </CloudinaryContext>
                             </div>
