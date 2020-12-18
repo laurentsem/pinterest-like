@@ -10,11 +10,13 @@ import firebase from "firebase";
 
 class Home extends Component {
     constructor(props) {
-        super(props)
+        super(props);
         this.initialState = {
             posts: [],
-            getId: ''
-        }
+            getId: '',
+            tags: [],
+            tagPost: []
+        };
 
         this.state = this.initialState
     }
@@ -34,20 +36,62 @@ class Home extends Component {
                 const posts = res.data;
                 this.setState({posts})
             })
+        axios.get('http://localhost:5000/tags')
+            .then(res => {
+                const tags = res.data;
+                this.setState({tags})
+            });
     }
 
     DeletePost = (id) => {
-        axios.delete(`http://localhost:5000/delPost/${id})`)
+        axios.delete(`http://localhost:5000/delPost/${id}`)
             .then(res => {
                 console.log("Delete post")
             })
-    }
+    };
+
+    /*
+        selectTags = (tag) => {
+            axios.get(`http://localhost:5000/tag/${tag})`)
+                .then(res => {
+                    const tagPost = res.data;
+                    this.setState({tagPost})
+                });
+            let e = document.getElementById("selectTag");
+            let tag = e.options[e.selectedIndex].text;
+
+            return (
+                <select>
+                    {
+                        for (let i = 0; i < this.state.tags.length; i++) {
+                            return(
+                                <option>{this.state.tags[i]}</option>
+                            );
+                        }
+                    }
+                </select>
+            )
+
+    };
+    */
+
+    selectOnChange = () => {
+        const URL = document.getElementById("selectTag").value;
+        console.log("Url : " + URL);
+        if ( URL !== '' ) {
+            window.location = URL;
+        }
+    };
 
     render() {
         return (
         <div>
-            <ul>
-            </ul>
+            <select id="selectTag" onChange={this.selectOnChange}>
+                <option disabled='disabled' selected='selected' value='' >Choisissez votre tag</option>
+                {this.state.tags.map(e =>
+                    <option value={`http://localhost:3000/tag/${e}`}>{e}</option>
+                )}
+            </select>
             <div className="allbody">
                 {this.state.posts.map(post =>
                 <div className="child-page-listing">

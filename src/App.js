@@ -10,19 +10,10 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import ProfilePage from './components/ProfilePage';
 import NewPost from './components/NewPost';
-import Axios from "axios";
+import TagDetails from "./components/TagDetails";
 
 
 function App() {
-    Axios({
-        method: "GET",
-        url: 'http://localhost:5000',
-        headers: {
-            "Content-Type": "application/json"
-        }
-    }).then(res => {
-        console.log(res.data.message)
-    })
 
     return (
         <body>
@@ -35,6 +26,7 @@ function App() {
                     <Route path="/login" component={Login}/>
                     <Route path="/profile" component={ProfilePage}/>
                     <Route path="/newPost" component={NewPost}/>
+                    <Route exact path="/tag/:tag" component={TagDetails}/>
                 </Switch>
             </Router>
             <Footer/>
