@@ -50,31 +50,6 @@ class Home extends Component {
             })
     };
 
-    /*
-        selectTags = (tag) => {
-            axios.get(`http://localhost:5000/tag/${tag})`)
-                .then(res => {
-                    const tagPost = res.data;
-                    this.setState({tagPost})
-                });
-            let e = document.getElementById("selectTag");
-            let tag = e.options[e.selectedIndex].text;
-
-            return (
-                <select>
-                    {
-                        for (let i = 0; i < this.state.tags.length; i++) {
-                            return(
-                                <option>{this.state.tags[i]}</option>
-                            );
-                        }
-                    }
-                </select>
-            )
-
-    };
-    */
-
     selectOnChange = () => {
         const URL = document.getElementById("selectTag").value;
         console.log("Url : " + URL);

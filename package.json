@@ -34,7 +34,6 @@
   "scripts": {
     "buildj": "babel src -d lib",
     "testj": "jest",
-
     "ng": "ng",
     "lint": "ng lint",
     "e2e": "ng e2e",
