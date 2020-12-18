@@ -98,7 +98,7 @@ class ProfilePage extends Component {
                 <></>
                 :
                 <>
-                    <img src={user.photoURL} alt="imgProfile"/>
+                    <img class="profile_image" src={user.photoURL} alt="imgProfile"/>
                 </>
             }
 

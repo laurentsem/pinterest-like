@@ -17,9 +17,9 @@ app.on('activate', function () {
 });
 function createWindow() {
     mainWindow = new BrowserWindow({
-        width: 1024,
-        height: 1024,
-        title: "Chat desktop app demo"
+        width: 1600,
+        height: 900,
+        title: "codinterest1"
     });
     mainWindow.loadURL(isDev ? 'http://localhost:3000' : `file://${path.join(__dirname, '../build/index.html')}`);
     mainWindow.on('closed', function () {
