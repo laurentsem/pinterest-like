@@ -4,6 +4,7 @@
 const { admin } = require('../firebase');
 const db = admin.firestore();
 
+
 async function getPlaylist(id) {
     const playlist = []
     const result = await db.collection('playlist').doc(id).get()
@@ -25,19 +26,23 @@ async function getPlaylists() {
     return playlists
 }
 
+async function createPlaylist(postData) {
+    const result = await db.collection('playlist').doc().set(postData);
+    return result
+}
+
 async function deletePlaylist(id) {
     const result = await db.collection('playlist').doc(id).delete();
     return result
 }
 
-// TODO : finir fct updatePlaylist
 async function updatePlaylist(id) {
     const result = await db.collection('playlist').doc(id).set();
     return result
 
 }
 
-
+exports.createPlaylist = createPlaylist;
 exports.getPlaylist = getPlaylist;
 exports.getPlaylists = getPlaylists
 exports.deletePlaylist = deletePlaylist;

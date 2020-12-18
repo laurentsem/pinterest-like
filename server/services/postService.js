@@ -12,8 +12,11 @@ async function createOnePost(postData) {
 }
 
 async function onePostById(id) {
-    const result = await db.collection('posts').doc(id).get();
-    return result
+    const post = []
+    const result = await db.collection('posts').doc(id).get()
+    const appObj = {...result.data(), ['postId']: id}
+    post.push(appObj)
+    return post
 }
 
 async function getRecentPosts() {

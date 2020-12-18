@@ -12,7 +12,8 @@ class Home extends Component {
         super(props)
         this.initialState = {
             posts: [],
-            getId: ''
+            getId: '',
+            playlists: []
         }
 
         this.state = this.initialState
@@ -42,6 +43,10 @@ class Home extends Component {
             })
     }
 
+    ChoosePlaylist =  (id) => {
+        axios.get('http://localh')
+    }
+
     render() {
         return (
         <div>
@@ -62,6 +67,10 @@ class Home extends Component {
                                                     <li>{post.title}</li>
                                                     <li>{post.tag}</li>
                                                     <li>{post.docId}</li>
+                                                        <select>
+
+                                                        </select>
+                                                        <button>Ajouter à la playlist</button>
 
                                                     <li>{this.state.getId === post.userId ?
                                                         <><button onClick={() => this.DeletePost(post.docId)}>Delete post</button></>

@@ -9,7 +9,8 @@ class PostDetails extends Component {
         super(props);
 
         this.initialState = {
-            post: []
+            post: [],
+            getId: ''
         };
 
         this.state = this.initialState;
@@ -30,17 +31,38 @@ class PostDetails extends Component {
         console.log(id)
         axios.get(`http://localhost:5000/posts/${id}`)
             .then(res => {
-                const playlist = res.data;
-                this.setState({playlist})
+                const post = res.data;
+                this.setState({post})
             })
     }
+
+    DeletePost = (id) => {
+        axios.delete(`http://localhost:5000/posts/${id}`)
+            .then(res => {
+                console.log(res)
+                this.props.history.push('/home')
+            })
+    }
+
+
 
     render() {
         return (
             <div>
-                <h2>  </h2>
+                <div>
+                    {this.state.post.map(e =>
+                        <div>
+                            <h2>{e.title}</h2>
+                                <CloudinaryContext cloudName="dp2k3zmzy">
+                                    <Image publicId={e.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
+                                </CloudinaryContext>
+                            <p>Description: {e.description}</p>
+                            <p>Tag : {e.tag}</p>
 
-
+                            <button onclick={() => this.DeletePost}> Supprimer </button>
+                        </div>
+                    )}
+                </div>
             </div>
         );
     }

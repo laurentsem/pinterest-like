@@ -9,6 +9,7 @@ class Playlist extends Component {
         super(props);
 
         this.initialState = {
+            userId: '',
             playlist: [],
             posts: []
         };
@@ -50,12 +51,12 @@ class Playlist extends Component {
                         {console.log("All post from playlist:" + e.posts)}
                         {this.postItem(e.posts)}
                     <h2>{e.name}</h2>
+
                         {this.state.posts.map(e =>
                             <CloudinaryContext cloudName="dp2k3zmzy">
                                 <Image publicId={e} ><Transformation gravity="east" crop="fill" /></Image>
                             </CloudinaryContext>
                         )}
-
                     </div>
                 )}
             </div>

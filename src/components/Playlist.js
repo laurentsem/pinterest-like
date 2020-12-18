@@ -21,6 +21,7 @@ class PlaylistDetails extends Component {
         firebase.auth().onAuthStateChanged((user) => {
             if (user) {
                 this.setState(() => ({
+                    isLogin: true,
                     userId: user.uid
                 }));
             } else {
@@ -37,18 +38,25 @@ class PlaylistDetails extends Component {
             })
     }
 
+    DeletePlaylist = (id) => {
+        axios.delete(`http://localhost:5000/playlist/${id}`)
+            .then(res => {
+                console.log(res)
+            })
+    }
+
     render() {
         return (
             <div>
-                <h2> Discover playlist </h2>
-                <p> All playlists publics</p>
+                <h2> My playlist </h2>
 
                 {this.state.playlist.map(playlist =>
                     <div>
-                    <h4>{playlist.name}</h4>
+                    <h3>{playlist.name}</h3>
                     <p>{playlist.playlistId}</p>
                         <Link to={`playlistDetails/${playlist.playlistId}`}>Détails de la playlist</Link>
-
+                        <br/>
+                        <button onClick={() => this.DeletePlaylist(playlist.playlistId)}> Supprimer la playlist </button>
                     </div>
                 )}
 
