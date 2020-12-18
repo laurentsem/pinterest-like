@@ -27,7 +27,7 @@ router.delete('/posts/:id', deleteOnePostById);
 router.post('/posts/:id', updateOnePostById);
 
 //Get All Post with Tag
-router.get('/posts/:tag', getPostsByOneTag);
+router.get('/tag/:tag', getPostsByOneTag);
 
 //Get All Tags
 router.get('/tags', getAllTags);
