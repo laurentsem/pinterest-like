@@ -140,7 +140,7 @@ class NewPost extends Component {
                        onChange={this.tagOnChange}
                required />
 
-                <p> Upload image from : </p>
+                <p class="ppp"> Upload image from : </p>
                 <select id="profilePictureType" onChange={this.onSelectChange}>
 
                     <option value="1">Load from Computer</option>

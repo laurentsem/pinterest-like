@@ -5,14 +5,13 @@ h1 {
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
-  -ms-appearance: none;
   appearance: none;
   outline: 0;
   box-shadow: none;
   border: 0 !important;
-  background: #000000;
-  background-image: none;
-  display: block;
+  background: #ff0000;
+  border-radius: 20px;
+  color: #f0f0f0;
 }
 /* Remove IE arrow */
 select::-ms-expand {
@@ -25,7 +24,7 @@ select::-ms-expand {
   width: 20em;
   height: 3em;
   line-height: 3;
-  background: #000000;
+  background: #ff0000;
   overflow: hidden;
   border-radius: .25em;
 }
@@ -57,4 +56,8 @@ div.select{
   display: inline-flex;
   color: #ffffff;
   justify-content: center;
+}
+p.ppp{
+  color: #d40000;
+  font-family: AppleGothic, fantasy;
 }

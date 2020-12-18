@@ -38,3 +38,8 @@ span{
 div .info{
     height: 200px!important;
 }
+
+img.profile_image{
+    filter: initial;
+
+}
