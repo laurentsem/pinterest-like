@@ -49,7 +49,7 @@ class Home extends Component {
     }
 
     DeletePost = (id) => {
-        axios.delete(`http://localhost:5000/delPost/${id}`)
+        axios.delete(`http://localhost:5000/posts/${id}`)
             .then(res => {
                 console.log(res)
             })
