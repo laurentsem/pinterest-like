@@ -14,6 +14,7 @@ class Home extends Component {
         this.initialState = {
             posts: [],
             getId: '',
+            playlists: []
             tags: [],
             tagPost: []
         };
@@ -46,7 +47,7 @@ class Home extends Component {
     DeletePost = (id) => {
         axios.delete(`http://localhost:5000/delPost/${id}`)
             .then(res => {
-                console.log("Delete post")
+                console.log(res)
             })
     };
 
@@ -58,6 +59,10 @@ class Home extends Component {
         }
     };
 
+    ChoosePlaylist =  (id) => {
+        axios.get('http://localh')
+    }
+
     render() {
         return (
         <div>
@@ -68,6 +73,7 @@ class Home extends Component {
                 )}
             </select>
             <div className="allbody">
+                <h2> Recents posts </h2>
                 {this.state.posts.map(post =>
                 <div className="child-page-listing">
                         <article className="location-listing">
@@ -76,13 +82,21 @@ class Home extends Component {
                                     <CloudinaryContext cloudName="dp2k3zmzy">
                                                 <div className="box">
                                                     <Image publicId={post.imageURL} ><Transformation gravity="east" crop="fill" /></Image>
-                                                    <li id="li">{post.title}</li>
-                                                    {this.state.getId === post.userId ?
+                                                    <ul>
+                                                    <li>{post.title}</li>
+                                                    <li>{post.tag}</li>
+                                                    <li>{post.docId}</li>
+                                                        <select>
+
+                                                        </select>
+                                                        <button>Ajouter à la playlist</button>
+
+                                                    <li>{this.state.getId === post.userId ?
                                                         <><button onClick={() => this.DeletePost(post.docId)}>Delete post</button></>
                                                         :
                                                         <>
                                                         </>
-                                                    }
+                                                    }</li></ul>
                                                 </div>
                                     </CloudinaryContext>
                             </div>
@@ -90,6 +104,7 @@ class Home extends Component {
                     </div>
             )}
             </div>
+
         </div>
         )
     }

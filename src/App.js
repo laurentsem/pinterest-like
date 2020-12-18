@@ -11,6 +11,11 @@ import Login from './components/Login';
 import ProfilePage from './components/ProfilePage';
 import NewPost from './components/NewPost';
 import TagDetails from "./components/TagDetails";
+import Playlist from './components/Playlist'
+import PlaylistDetails from "./components/PlaylistDetails";
+import PostDetails from "./components/PostDetails";
+import CreatePlaylist from "./components/CreatePlaylist";
+import Axios from "axios";
 
 
 function App() {
@@ -27,6 +32,11 @@ function App() {
                     <Route path="/profile" component={ProfilePage}/>
                     <Route path="/newPost" component={NewPost}/>
                     <Route exact path="/tag/:tag" component={TagDetails}/>
+                    <Route path="/createPlaylist" component={CreatePlaylist}/>
+                    <Route path="/playlist" component={Playlist}/>
+                    <Route exact path="/playlistDetails/:id" component={PlaylistDetails}/>
+                    <Route exact path="/posts/:id" component={PostDetails}/>
+
                 </Switch>
             </Router>
         </div>

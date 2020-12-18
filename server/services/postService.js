@@ -13,8 +13,11 @@ async function createOnePost(postData) {
 }
 
 async function onePostById(id) {
-    const result = await db.collection('posts').doc(id).get();
-    return result
+    const post = []
+    const result = await db.collection('posts').doc(id).get()
+    const appObj = {...result.data(), ['postId']: id}
+    post.push(appObj)
+    return post
 }
 
 async function getRecentPosts() {
@@ -70,6 +73,12 @@ async function updateOnePostById(id, postData) {
 
 }
 
+// Posts with tags
+async function getPostsWithTag(tag) {
+    const result = await db.collection('posts').doc(tag).get();
+    return result
+}
+
 exports.createOnePost = createOnePost;
 exports.onePostById = onePostById;
 exports.getRecentPosts = getRecentPosts;
@@ -77,3 +86,5 @@ exports.deleteOnePostById = deleteOnePostById;
 exports.updateOnePostById = updateOnePostById;
 exports.getPostsByOneTag = getPostsByOneTag;
 exports.getAllTags = getAllTags;
+
+exports.getPostsWithTag = getPostsWithTag;

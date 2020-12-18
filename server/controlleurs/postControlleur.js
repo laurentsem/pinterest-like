@@ -29,7 +29,7 @@ async function createOnePost(req, res) {
             console.log("Link req.body before: " + req.body.imageURL);
             console.log("Link from Cloud: " + result.public_id);
             req.body.imageURL = result.public_id;
-            req.body.date = admin.firestore.Timestamp.fromDate(req.body.date);
+            req.body.date = admin.firestore.Timestamp.fromDate(new Date());
             console.log("Link after req.body change: " + req.body.imageURL);
             const createPost = await postService.createOnePost(req.body);
             res.json(createPost)
@@ -68,6 +68,14 @@ async function updateOnePostById(req, res) {
     res.json(result)
 }
 
+
+// Posts with tags
+
+async function postsByTag(req, res) {
+    const result = await postService.getPostsWithTag(req.params.tag)
+    res.json(result)
+}
+
 exports.createOnePost = createOnePost;
 exports.onePostById = onePostById;
 exports.recentPosts = recentPosts;
@@ -75,3 +83,5 @@ exports.deleteOnePostById = deleteOnePostById;
 exports.updateOnePostById = updateOnePostById;
 exports.getPostsByOneTag = getPostsByOneTag;
 exports.getAllTags = getAllTags;
+
+exports.postsByTag = postsByTag;

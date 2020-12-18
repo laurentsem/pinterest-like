@@ -60,7 +60,7 @@ class NewPost extends Component {
         uploadData.append('image', this.state.imageFile);
         uploadData.append('userId', this.state.userId);
         uploadData.append('date', this.state.date);
-        // append for userID
+
         const config = {
             headers: { 'content-type': 'multipart/form-data' }
         };
@@ -72,7 +72,6 @@ class NewPost extends Component {
             imageURL: this.state.imageURL,
             userId: this.state.userId,
             date: this.state.date
-            // add userID
         };
 
         if(this.state.imageURL === '') {

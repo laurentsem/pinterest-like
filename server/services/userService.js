@@ -2,9 +2,7 @@
 // appele seulement db.collection()
 
 const { admin } = require('../firebase');
-// const auth = admin.auth();
 const db = admin.firestore();
-const { v4: uuidv4 } = require('uuid');
 
 async function getUserById(id) {
     const result = await db.collection('users').doc(id).get();
